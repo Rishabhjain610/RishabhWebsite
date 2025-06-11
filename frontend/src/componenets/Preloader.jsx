@@ -16,24 +16,24 @@ const Preloader = () => {
   // Container animations
   const containerVariants = {
     initial: { opacity: 0 },
-    animate: { 
+    animate: {
       opacity: 1,
-      transition: { 
+      transition: {
         duration: 0.6,
-        when: "beforeChildren" 
-      }
+        when: "beforeChildren",
+      },
     },
     exit: {
       opacity: 0,
       filter: "blur(8px)",
       scale: 0.98,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         ease: [0.43, 0.13, 0.23, 0.96],
         when: "afterChildren",
-        staggerChildren: 0.05
-      }
-    }
+        staggerChildren: 0.05,
+      },
+    },
   };
 
   // Text animations
@@ -41,72 +41,77 @@ const Preloader = () => {
     animate: {
       transition: {
         staggerChildren: 0.05,
-        delayChildren: 0.2
-      }
+        delayChildren: 0.2,
+      },
     },
     exit: {
       transition: {
         staggerChildren: 0.03,
-        staggerDirection: -1
-      }
-    }
+        staggerDirection: -1,
+      },
+    },
   };
 
   // Letter animations
   const letterVariants = {
-    initial: { 
-      opacity: 0, 
-      y: 20, 
-      filter: "blur(8px)" 
+    initial: {
+      opacity: 0,
+      y: 20,
+      filter: "blur(8px)",
     },
     animate: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { 
-        duration: 0.4, 
-        ease: "easeOut" 
-      }
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
     },
     exit: {
       opacity: 0,
       y: -20,
       filter: "blur(8px)",
-      transition: { 
-        duration: 0.3, 
-        ease: "easeIn" 
-      }
-    }
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
   };
 
   // Loader animations
   const loaderGroupVariants = {
     initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
       transition: {
         delay: svgText.length * 0.05 + 0.3,
         duration: 0.5,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       y: 10,
-      transition: { 
+      transition: {
         duration: 0.3,
-        ease: "easeIn" 
-      }
-    }
+        ease: "easeIn",
+      },
+    },
   };
 
   return (
     <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center bg-black overflow-hidden px-4"
-          style={{ justifyContent: "flex-start", paddingTop: "15vh" }}
+          className="fixed inset-0 z-50 flex flex-col items-center overflow-hidden px-4"
+          style={{
+            justifyContent: "flex-start",
+            paddingTop: "15vh",
+            background:
+              "linear-gradient(to bottom, #051035 0%, #081020 40%, #000000 100%)",
+          }}
           variants={containerVariants}
           initial="initial"
           animate="animate"
@@ -118,7 +123,7 @@ const Preloader = () => {
             <div className="stars-medium"></div>
             <div className="stars-large"></div>
           </div>
-          
+
           <div className="flex flex-col items-center justify-center w-full relative z-10">
             {/* Main heading - centered */}
             <motion.svg
@@ -131,23 +136,39 @@ const Preloader = () => {
             >
               <defs>
                 {/* Enhanced cosmic gradient */}
-                <linearGradient id="cosmic-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient
+                  id="cosmic-gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
                   <stop offset="0%" stopColor="#10B8EF" />
                   <stop offset="30%" stopColor="#9B5DE5" />
                   <stop offset="70%" stopColor="#9B5DE5" />
                   <stop offset="100%" stopColor="#00F5D4" />
                 </linearGradient>
-                
+
                 {/* Space glow effect */}
-                <filter id="space-glow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                <filter
+                  id="space-glow"
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
+                >
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="4"
+                    result="blur"
+                  />
                   <feMerge>
                     <feMergeNode in="blur" />
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
               </defs>
-              
+
               {/* Background text for extra glow effect */}
               <text
                 x="50%"
@@ -163,7 +184,7 @@ const Preloader = () => {
               >
                 {svgText}
               </text>
-              
+
               {/* Main text with cosmic gradient */}
               <text
                 x="50%"
@@ -189,71 +210,85 @@ const Preloader = () => {
               </text>
             </motion.svg>
           </div>
-            
+
           {/* Cosmic loader */}
           <motion.div
             className="flex flex-col items-center relative z-10"
             variants={loaderGroupVariants}
-            style={{ marginTop: "clamp(4rem, 10vh, 6rem)" }} 
+            style={{ marginTop: "clamp(4rem, 10vh, 6rem)" }}
           >
             {/* Planet and orbit system */}
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
               {/* Outer orbital ring with glow */}
-              <div className="absolute inset-0 border-[3px] border-dashed border-purple-400/40 rounded-full"
-                  style={{ 
-                    animation: "orbit 12s linear infinite",
-                    boxShadow: "0 0 15px rgba(147, 51, 234, 0.15)" 
-                  }} />
-                  
+              <div
+                className="absolute inset-0 border-[3px] border-dashed border-purple-400/40 rounded-full"
+                style={{
+                  animation: "orbit 12s linear infinite",
+                  boxShadow: "0 0 15px rgba(147, 51, 234, 0.15)",
+                }}
+              />
+
               {/* Middle orbital ring with glow */}
-              <div className="absolute inset-[8px] sm:inset-[10px] border-[3px] border-dashed border-cyan-300/40 rounded-full"
-                  style={{ 
-                    animation: "orbit 18s linear infinite reverse",
-                    boxShadow: "0 0 15px rgba(45, 212, 191, 0.15)" 
-                  }} />
-                  
+              <div
+                className="absolute inset-[8px] sm:inset-[10px] border-[3px] border-dashed border-cyan-300/40 rounded-full"
+                style={{
+                  animation: "orbit 18s linear infinite reverse",
+                  boxShadow: "0 0 15px rgba(45, 212, 191, 0.15)",
+                }}
+              />
+
               {/* Inner orbital ring with glow */}
-              <div className="absolute inset-[20px] sm:inset-[25px] border-[2px] border-dashed border-fuchsia-300/40 rounded-full"
-                  style={{ 
-                    animation: "orbit 8s linear infinite",
-                    boxShadow: "0 0 15px rgba(192, 38, 211, 0.15)" 
-                  }} />
-              
+              <div
+                className="absolute inset-[20px] sm:inset-[25px] border-[2px] border-dashed border-fuchsia-300/40 rounded-full"
+                style={{
+                  animation: "orbit 8s linear infinite",
+                  boxShadow: "0 0 15px rgba(192, 38, 211, 0.15)",
+                }}
+              />
+
               {/* Central planet with enhanced glow */}
-              <div className="absolute top-1/2 left-1/2 w-14 h-14 sm:w-16 sm:h-16 -ml-7 sm:-ml-8 -mt-7 sm:-mt-8 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
-                  style={{ 
-                    animation: "pulse 3s ease-in-out infinite",
-                    boxShadow: "0 0 20px rgba(139, 92, 246, 0.6)" 
-                  }} />
-                  
+              <div
+                className="absolute top-1/2 left-1/2 w-14 h-14 sm:w-16 sm:h-16 -ml-7 sm:-ml-8 -mt-7 sm:-mt-8 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
+                style={{
+                  animation: "pulse 3s ease-in-out infinite",
+                  boxShadow: "0 0 20px rgba(139, 92, 246, 0.6)",
+                }}
+              />
+
               {/* Orbiting moon 1 with enhanced glow */}
-              <div className="absolute top-0 left-1/2 -ml-2.5 sm:-ml-3 -mt-2.5 sm:-mt-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400"
-                  style={{ 
-                    animation: "orbit 5s linear infinite",
-                    boxShadow: "0 0 15px rgba(45, 212, 191, 0.5)" 
-                  }} />
-                  
+              <div
+                className="absolute top-0 left-1/2 -ml-2.5 sm:-ml-3 -mt-2.5 sm:-mt-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400"
+                style={{
+                  animation: "orbit 5s linear infinite",
+                  boxShadow: "0 0 15px rgba(45, 212, 191, 0.5)",
+                }}
+              />
+
               {/* Orbiting satellite 1 with enhanced glow */}
-              <div className="absolute top-1/2 left-0 -ml-2 sm:-ml-2.5 -mt-2 sm:-mt-2.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500"
-                  style={{ 
-                    animation: "orbit 7s linear infinite reverse",
-                    boxShadow: "0 0 15px rgba(244, 114, 182, 0.5)" 
-                  }} />
-                  
+              <div
+                className="absolute top-1/2 left-0 -ml-2 sm:-ml-2.5 -mt-2 sm:-mt-2.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500"
+                style={{
+                  animation: "orbit 7s linear infinite reverse",
+                  boxShadow: "0 0 15px rgba(244, 114, 182, 0.5)",
+                }}
+              />
+
               {/* Orbiting satellite 2 with enhanced glow */}
-              <div className="absolute bottom-1/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"
-                  style={{ 
-                    animation: "orbitElliptical 9s linear infinite",
-                    boxShadow: "0 0 15px rgba(251, 146, 60, 0.5)" 
-                  }} />
+              <div
+                className="absolute bottom-1/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"
+                style={{
+                  animation: "orbitElliptical 9s linear infinite",
+                  boxShadow: "0 0 15px rgba(251, 146, 60, 0.5)",
+                }}
+              />
             </div>
-            
+
             {/* Loading text with enhanced glow */}
-            <div 
-              className="mt-6 text-cyan-300 text-sm sm:text-base font-[Orbitron] tracking-widest uppercase"
-              style={{ 
+            <div
+              className="mt-6 text-cyan-300 text-sm sm:text-base font-[Orbitron] tracking-widest "
+              style={{
                 animation: "fadeInOut 2s ease-in-out infinite",
-                textShadow: "0 0 8px rgba(45, 212, 191, 0.7)" 
+                textShadow: "0 0 8px rgba(45, 212, 191, 0.7)",
               }}
             >
               Loading
@@ -263,6 +298,9 @@ const Preloader = () => {
           {/* Animation keyframes */}
           <style>
             {`
+              /* Import Space Grotesk font */
+              @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+              
               /* Starry background */
               .stars-small, .stars-medium, .stars-large {
                 position: absolute;
