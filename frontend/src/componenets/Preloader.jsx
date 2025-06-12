@@ -3,16 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../App.css";
 
 const Preloader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading1,setisLoading1]  = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 4000);
+    const timer = setTimeout(() => {
+     
+      setisLoading1(false);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
   const svgText = "< Rishabh Jain />";
 
-  // Container animations
+
   const containerVariants = {
     initial: { opacity: 0 },
     animate: {
@@ -35,7 +38,7 @@ const Preloader = () => {
     },
   };
 
-  // Text animations
+
   const textContainerVariants = {
     animate: {
       transition: {
@@ -51,7 +54,7 @@ const Preloader = () => {
     },
   };
 
-  // Letter animations
+
   const letterVariants = {
     initial: {
       opacity: 0,
@@ -78,7 +81,7 @@ const Preloader = () => {
     },
   };
 
-  // Loader animations
+
   const loaderGroupVariants = {
     initial: { opacity: 0, y: 20 },
     animate: {
@@ -102,7 +105,7 @@ const Preloader = () => {
 
   return (
     <AnimatePresence mode="wait">
-      {isLoading && (
+      {isLoading1 && (
         <motion.div
           className="fixed inset-0 z-50 flex flex-col items-center overflow-hidden px-4"
           style={{
@@ -116,7 +119,7 @@ const Preloader = () => {
           animate="animate"
           exit="exit"
         >
-          {/* Starry background */}
+          
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <div className="stars-small"></div>
             <div className="stars-medium"></div>
@@ -124,7 +127,7 @@ const Preloader = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center w-full relative z-10">
-            {/* Main heading - centered */}
+            
             <motion.svg
               width="100%"
               height="auto"
@@ -134,7 +137,7 @@ const Preloader = () => {
               variants={textContainerVariants}
             >
               <defs>
-                {/* Enhanced cosmic gradient */}
+                
                 <linearGradient
                   id="cosmic-gradient"
                   x1="0%"
@@ -148,7 +151,7 @@ const Preloader = () => {
                   <stop offset="100%" stopColor="#00F5D4" />
                 </linearGradient>
 
-                {/* Space glow effect */}
+                
                 <filter
                   id="space-glow"
                   x="-50%"
@@ -168,7 +171,7 @@ const Preloader = () => {
                 </filter>
               </defs>
 
-              {/* Background text for extra glow effect */}
+              
               <text
                 x="50%"
                 y="50%"
@@ -184,7 +187,7 @@ const Preloader = () => {
                 {svgText}
               </text>
 
-              {/* Main text with cosmic gradient */}
+              
               <text
                 x="50%"
                 y="50%"
@@ -210,15 +213,15 @@ const Preloader = () => {
             </motion.svg>
           </div>
 
-          {/* Cosmic loader */}
+          
           <motion.div
             className="flex flex-col items-center relative z-10"
             variants={loaderGroupVariants}
             style={{ marginTop: "clamp(4rem, 10vh, 6rem)" }}
           >
-            {/* Planet and orbit system */}
+            
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
-              {/* Outer orbital ring with glow */}
+              
               <div
                 className="absolute inset-0 border-[3px] border-dashed border-purple-400/40 rounded-full"
                 style={{
@@ -227,7 +230,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Middle orbital ring with glow */}
+              
               <div
                 className="absolute inset-[8px] sm:inset-[10px] border-[3px] border-dashed border-cyan-300/40 rounded-full"
                 style={{
@@ -236,7 +239,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Inner orbital ring with glow */}
+              
               <div
                 className="absolute inset-[20px] sm:inset-[25px] border-[2px] border-dashed border-fuchsia-300/40 rounded-full"
                 style={{
@@ -245,7 +248,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Central planet with enhanced glow */}
+              
               <div
                 className="absolute top-1/2 left-1/2 w-14 h-14 sm:w-16 sm:h-16 -ml-7 sm:-ml-8 -mt-7 sm:-mt-8 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
                 style={{
@@ -254,7 +257,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Orbiting moon 1 with enhanced glow */}
+              
               <div
                 className="absolute top-0 left-1/2 -ml-2.5 sm:-ml-3 -mt-2.5 sm:-mt-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400"
                 style={{
@@ -263,7 +266,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Orbiting satellite 1 with enhanced glow */}
+             
               <div
                 className="absolute top-1/2 left-0 -ml-2 sm:-ml-2.5 -mt-2 sm:-mt-2.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500"
                 style={{
@@ -272,7 +275,7 @@ const Preloader = () => {
                 }}
               />
 
-              {/* Orbiting satellite 2 with enhanced glow */}
+            
               <div
                 className="absolute bottom-1/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"
                 style={{
@@ -282,7 +285,7 @@ const Preloader = () => {
               />
             </div>
 
-            {/* Loading text with enhanced glow */}
+           
             <div
               className="mt-6 text-cyan-300 text-sm sm:text-base font-[Orbitron] tracking-widest "
               style={{
@@ -294,7 +297,7 @@ const Preloader = () => {
             </div>
           </motion.div>
 
-          {/* Animation keyframes */}
+       
           <style>
             {`
               /* Import Space Grotesk font */
