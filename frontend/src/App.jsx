@@ -3,21 +3,19 @@ import "./App.css";
 import Bg from "./componenets/Bg";
 import Preloader from "./componenets/Preloader";
 import Navbar from "./componenets/Navbar";
-import LandingPage1 from "./componenets/Hero";
-
+import Hero from "./componenets/Hero";
+import About from "./componenets/About";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="min-h-[600vh] text-white">
       <Bg />
-      <Preloader  />
-    
-        
-          <Navbar />
-          <LandingPage1 />
-        
-     
+      <Preloader />
+
+      <Navbar />
+      <Hero />
+      <About />
     </div>
   );
 };
