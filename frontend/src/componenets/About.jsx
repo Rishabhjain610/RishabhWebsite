@@ -1,35 +1,26 @@
 import React from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
-import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+
 import Timeline from "./Timeline";
 import "../App.css";
 const About = () => {
-  const buttonHoverVariants = {
-    initial: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0 10px 25px -5px rgba(124, 58, 237, 0.5)",
-      transition: { duration: 0.2, ease: "easeInOut" },
-    },
-    tap: { scale: 0.95 },
-  };
-
+  
   return (
-    <div className="min-h-screen bg-gradient-to-b from-transparent to-purple-900/10">
+    <div className="min-h-screen bg-gradient-to-b from-transparent to-purple-900/10" id="about">
       <motion.h1
-        className="font1 text-center text-5xl flex items-center justify-center gap-3 "
+        className="font1 font-medium text-center text-5xl flex items-center justify-center gap-3 "
         style={{
           marginTop: "70px",
         }}
-        initial={{ opacity: 0, y: -200 }}
+        initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         About
         <h2 className="text-center text-5xl text-purple-500">Me</h2>
       </motion.h1>
-
+      
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-10">
         <div
           className="md:w-[120%] lg:w-[60%] w-4/5 text-center md:text-start text-2xl relative top-10 "
@@ -123,6 +114,7 @@ const About = () => {
 
         <Timeline />
       </div>
+      
     </div>
   );
 };
