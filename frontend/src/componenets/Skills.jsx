@@ -1,12 +1,66 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
-
+import { ScrollTrigger } from "gsap/all";
 import Timeline from "./Timeline";
 import "../App.css";
 import SpotlightCard from "./SpotlightCard";
 
+gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    const cards = cardsRef.current.children;
+
+    gsap.set(cards, {
+      opacity: 0,
+      y: 50,
+    });
+
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: cardsRef.current,
+        start: "top center+=100",
+        end: "bottom center",
+        toggleActions: "play reverse restart reverse", // Changed this line
+        // play when entering
+        // reverse when leaving
+        // restart when entering again
+        // reverse when leaving again
+      },
+    });
+    Array.from(cards).forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+    });
+    return () => {
+      Array.from(cards).forEach((card) => {
+        const scrollTrigger = ScrollTrigger.getById(card);
+        if (scrollTrigger) {
+          scrollTrigger.kill();
+        }
+      });
+    };
+  }, []);
   return (
     <div
       className="min-h-[100vh] bg-gradient-to-b from-transparent to-purple-900/10"
@@ -25,6 +79,7 @@ const Skills = () => {
         <h2 className="text-center text-5xl text-purple-500">Skills</h2>
       </motion.h1>
       <div
+        ref={cardsRef}
         className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4  md:gap-6 "
         style={{
           margin: "50px auto", // Center horizontally with auto margins
@@ -33,7 +88,7 @@ const Skills = () => {
         }}
       >
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-purple-500 shadow-sm flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col justify-center rounded-3xl "
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -62,9 +117,10 @@ const Skills = () => {
               d="M24,30.9v4.2l-7.9-2.6L15.7,27h4l0.2,2.5L24,30.9z M19.1,17H24v-4h-9.1l0.7,12H24v-4h-4.6L19.1,17z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">HTML</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -93,9 +149,10 @@ const Skills = () => {
               d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">CSS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center flex-col justify-center rounded-3xl"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -119,9 +176,10 @@ const Skills = () => {
               d="M29.538,32.947c0.692,1.124,1.444,2.201,3.037,2.201c1.338,0,2.04-0.665,2.04-1.585 c0-1.101-0.726-1.492-2.198-2.133l-0.807-0.344c-2.329-0.988-3.878-2.226-3.878-4.841c0-2.41,1.845-4.244,4.728-4.244 c2.053,0,3.528,0.711,4.592,2.573l-2.514,1.607c-0.553-0.988-1.151-1.377-2.078-1.377c-0.946,0-1.545,0.597-1.545,1.377 c0,0.964,0.6,1.354,1.985,1.951l0.807,0.344C36.452,29.645,38,30.839,38,33.523C38,36.415,35.716,38,32.65,38 c-2.999,0-4.702-1.505-5.65-3.368L29.538,32.947z M17.952,33.029c0.506,0.906,1.275,1.603,2.381,1.603 c1.058,0,1.667-0.418,1.667-2.043V22h3.333v11.101c0,3.367-1.953,4.899-4.805,4.899c-2.577,0-4.437-1.746-5.195-3.368 L17.952,33.029z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">JavaScript</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -153,9 +211,10 @@ const Skills = () => {
             ></path>
             <circle cx="24" cy="24" r="4" fill="#80deea"></circle>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">React JS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -182,9 +241,10 @@ const Skills = () => {
               d="M28.856,32.937c-6.868,0-8.308-3.153-8.308-5.797c0-0.251,0.203-0.452,0.455-0.452h2.028	c0.224,0,0.413,0.163,0.448,0.384c0.306,2.066,1.218,3.108,5.371,3.108c3.308,0,4.715-0.747,4.715-2.502	c0-1.01-0.401-1.76-5.54-2.263c-4.299-0.424-6.955-1.371-6.955-4.809c0-3.167,2.672-5.053,7.147-5.053	c5.026,0,7.517,1.745,7.831,5.493c0.012,0.13-0.035,0.255-0.122,0.35c-0.086,0.09-0.208,0.145-0.334,0.145h-2.039	c-0.212,0-0.397-0.149-0.44-0.354c-0.491-2.173-1.678-2.868-4.904-2.868c-3.611,0-4.031,1.257-4.031,2.2	c0,1.143,0.495,1.477,5.367,2.122c4.825,0.64,7.116,1.544,7.116,4.935c0,3.418-2.853,5.379-7.827,5.379"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Node JS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -211,10 +271,11 @@ const Skills = () => {
               d="M24,26v-3c0-6.675-5.945-11.961-12.829-10.852C5.812,13.011,2,17.857,2,23.284L2,24v2v0.142	c0,6.553,4.777,11.786,10.868,11.858c5.092,0.06,9.389-3.344,10.707-7.999h-1.028c-0.62,0-1.182,0.355-1.451,0.913	c-1.739,3.595-5.789,5.862-10.228,4.842C6.776,34.815,4,30.981,4,26.783V26H24z M4,23.71c0-4.708,2.804-8.557,6.924-9.478	C16.798,12.92,22,17.352,22,23v1H4V23.71z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Express JS</h1>
         </SpotlightCard>
 
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -327,9 +388,10 @@ const Skills = () => {
               d="M64.316 95.172l-.066-.011-.066.01.155-.559-.023.56z"
             />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Mongo DB</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -376,9 +438,10 @@ const Skills = () => {
               d="M33.098,14.223c-0.215-0.004-0.367,0.023-0.528,0.059c0,0.01,0,0.019,0,0.03c0.01,0,0.019,0,0.03,0 c0.103,0.21,0.283,0.347,0.41,0.528c0.098,0.205,0.195,0.41,0.293,0.615c0.01-0.01,0.019-0.019,0.029-0.029 c0.181-0.128,0.265-0.332,0.264-0.645c-0.073-0.077-0.084-0.173-0.147-0.264C33.365,14.394,33.203,14.325,33.098,14.223z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">My SQL</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -412,9 +475,10 @@ const Skills = () => {
               d="M24,9.604c-5.589,0-9.347,2.439-11.276,7.318c-0.2,0.505,0.417,0.92,0.816,0.551 c2.035-1.882,4.322-2.505,6.86-1.871c1.826,0.456,3.131,1.781,4.576,3.247C27.328,21.236,30.051,24,36,24 c5.589,0,9.348-2.44,11.276-7.319c0.2-0.505-0.417-0.92-0.816-0.551c-2.035,1.882-4.322,2.506-6.86,1.872 c-1.825-0.456-3.13-1.781-4.575-3.247C32.672,12.367,29.948,9.604,24,9.604L24,9.604z M12,24c-5.589,0-9.348,2.44-11.276,7.319 c-0.2,0.505,0.417,0.92,0.816,0.551c2.035-1.882,4.322-2.506,6.86-1.871c1.825,0.457,3.13,1.781,4.575,3.246 c2.353,2.388,5.077,5.152,11.025,5.152c5.589,0,9.348-2.44,11.276-7.319c0.2-0.505-0.417-0.92-0.816-0.551 c-2.035,1.882-4.322,2.506-6.86,1.871c-1.826-0.456-3.131-1.781-4.576-3.246C20.672,26.764,17.949,24,12,24L12,24z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Tailwind CSS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -441,9 +505,10 @@ const Skills = () => {
               d="M27.073,23.464v-0.028c1.853-0.32,3.299-2.057,3.299-3.97c0-1.352-0.52-2.498-1.504-3.312	c-0.981-0.812-2.357-1.241-3.981-1.241H17.45V33.08h7.475c1.942,0,3.555-0.474,4.663-1.372c1.109-0.899,1.696-2.207,1.696-3.783	C31.283,25.544,29.593,23.756,27.073,23.464z M23.59,22.608h-3.181V17.29h3.784c2.076,0,3.219,0.911,3.219,2.565	C27.413,21.63,26.055,22.608,23.59,22.608z M20.409,24.834h3.759c2.716,0,4.092,0.981,4.092,2.916c0,1.932-1.357,2.953-3.925,2.953	h-3.926V24.834z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">BootStrap</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -470,9 +535,10 @@ const Skills = () => {
               d="M23.078,43c1.555-0.005,2.633-0.142,3.936-0.367c3.848-0.67,4.549-2.077,4.549-4.67V34h-9v-2h9.343h4.35c2.636,0,4.943-1.242,5.674-4.219c0.826-3.417,0.863-5.557,0-9.125C41.274,15.995,39.831,14,37.194,14h-3.632v5.104c0,2.966-2.686,5.896-5.764,5.896h-7.236c-2.523,0-5,1.862-5,4.377v8.586c0,2.439,1.759,4.263,4.218,4.672C19.719,42.641,21.536,43.006,23.078,43z M28.063,39c-0.821,0-1.5-0.677-1.5-1.502c0-0.833,0.679-1.498,1.5-1.498c0.837,0,1.5,0.664,1.5,1.498C29.563,38.32,28.899,39,28.063,39z"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Python</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -521,10 +587,11 @@ const Skills = () => {
               ></path>
             </g>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Java</h1>
         </SpotlightCard>
 
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -567,9 +634,10 @@ const Skills = () => {
               clip-rule="evenodd"
             ></path>
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">C Programming</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -598,9 +666,10 @@ const Skills = () => {
               d="M91.95 23.31a11.047 11.047 0 0 0-7.759 3.17 10.988 10.988 0 0 0-2.39 11.641c-4.741-2.03-11.155 1.51-31.106 21.457a.932.932 0 0 0-.037.094 1.242 1.242 0 0 0-.119.062l-6.309 6.364a1.97 1.97 0 0 0-.363 2.324 2.012 2.012 0 0 0 1.707.984l.313-.203 8.424-1.797-4.03 4.067a.873.873 0 0 0-.054.166l-19.75 19.799a.798.798 0 0 0-.192.238l-5.086 5.09a1.967 1.967 0 0 0-.414 2.043 1.995 1.995 0 0 0 1.656 1.265l12.618.88a1.01 1.01 0 0 0 .52-.415.886.886 0 0 0 0-1.035l-.026-.025a2.243 2.243 0 0 0 .705-.58 2.237 2.237 0 0 0 .406-1.876l-.984-4.187a126.725 126.725 0 0 0 26.334-16.861 1.091 1.091 0 0 0 .248.103c.254-.019.492-.128.672-.308 13.55-12.83 21.515-21.622 21.515-28.602a8.03 8.03 0 0 0-.431-2.85 10.957 10.957 0 0 0 3.845.83l-.015.004a11.219 11.219 0 0 0 5.183-1.45.775.775 0 0 0 .004.001.835.835 0 0 0 .617-.055 9.398 9.398 0 0 0 2.07-1.652 10.873 10.873 0 0 0 3.258-7.758 10.873 10.873 0 0 0-3.257-7.758.93.93 0 0 0-.118-.091 11.045 11.045 0 0 0-7.656-3.078zm-.087 1.772a9.27 9.27 0 0 1 5.586 1.914l-8.068 8.117a.84.84 0 0 0-.076.098.83.83 0 0 0-.239.55.832.832 0 0 0 .313.65h.002l6.1 6.1a9.044 9.044 0 0 1-10.028-1.913c-2.586-2.6-3.336-6.504-1.953-9.891 1.383-3.39 4.68-5.605 8.363-5.625zm7.12 3.432a8.87 8.87 0 0 1 2.033 5.674 9.15 9.15 0 0 1-2.688 6.464 9.989 9.989 0 0 1-1.098.895L92.307 36.7l-.963-.963.265-.265 7.373-6.96zm-.366 4.193a.777.777 0 0 0-.55.031.731.731 0 0 0-.36.426.73.73 0 0 0 .05.559 2.226 2.226 0 0 1-.257 2.328.64.64 0 0 0-.195.488c.004.184.07.36.195.492a.58.58 0 0 0 .414 0 .68.68 0 0 0 .672-.207 3.573 3.573 0 0 0 .465-3.777v.004a.777.777 0 0 0-.434-.344zM79.34 39.43a5.584 5.584 0 0 1 3.31 1.226 4.756 4.756 0 0 0-2.681 1.34L57.162 64.701l-4.476-4.476c11.828-11.772 19.06-17.921 23.556-19.936a5.584 5.584 0 0 1 3.098-.86zm3.965 2.96a2.895 2.895 0 0 1 2.043.844 2.786 2.786 0 0 1 .879 2.121 2.869 2.869 0 0 1-.985 2.07l-24.25 21.106-2.617-2.617 22.887-22.68a2.895 2.895 0 0 1 2.043-.843zm2.994 6.698c-1.69 6.702-10.647 15.783-19.987 24.607l-3.777-3.773L86.3 49.088zM51.367 61.547l.274.27 3.513 3.513-9.63 2.06 5.843-5.843zm5.793 5.84.004.004 1.168 1.195a1.086 1.086 0 0 0 .018.084l.078.012.248.254.82.84-5.385.66 3.05-3.05zm3.867 4.076 3.578 3.576A126.992 126.992 0 0 1 38.75 91.695a1.44 1.44 0 0 0-.777 1.653l1.035 4.5a.31.31 0 0 1 0 .363.31.31 0 0 1-.414 0l-6.102-6.152L51.3 72.975l9.728-1.512zm-29.933 21.94.869.814 4.492 4.492-10.016-.648 4.655-4.659z"
             />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Postman API</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -634,9 +703,10 @@ const Skills = () => {
               d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"
             />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">GSAP</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -662,9 +732,10 @@ const Skills = () => {
             <path d="M12 12l-8 -8v16l16 -16v16l-4 -4" />
             <path d="M20 12l-8 8l-4 -4" />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Framer Motion</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -684,9 +755,10 @@ const Skills = () => {
           >
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">GitHub</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center"
+          className="custom-spotlight-card h-[200px] w-[180px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -716,6 +788,7 @@ const Skills = () => {
               d="M80 114.6L127.8 87V50.2l-16 9.2v18.4L80 96.2v18.4zM111.9 41V22.6l16-9.2v18.4l-16 9.2z"
             />
           </motion.svg>
+          <h1 className="font1 text-xl tracking-wide">Material UI</h1>
         </SpotlightCard>
       </div>
     </div>

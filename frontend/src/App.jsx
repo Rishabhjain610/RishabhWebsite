@@ -7,7 +7,7 @@ import Hero from "./componenets/Hero";
 import About from "./componenets/About";
 import gsap from "gsap";
 import Skills from "./componenets/Skills";
-
+import Projects from "./componenets/Projects";
 
 // Register GSAP plugins
 
@@ -25,6 +25,7 @@ const App = () => {
           <Hero />
           <About />
           <Skills />
+          <Projects/>
       
       </div>
     </>
