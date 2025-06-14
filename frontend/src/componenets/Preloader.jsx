@@ -9,7 +9,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
      
       setisLoading1(false);
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 

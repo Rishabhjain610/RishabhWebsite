@@ -10,20 +10,16 @@ gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
   const cardsRef = useRef(null);
 
-
-
   useEffect(() => {
     const cards = cardsRef.current.children;
-    
-   
-    gsap.set(cards, { 
+
+    gsap.set(cards, {
       opacity: 0,
       scale: 0.8,
-      y: 30
+      y: 30,
     });
 
-    
-    gsap.to(cards, {
+    const tl = gsap.to(cards, {
       opacity: 1,
       scale: 1,
       y: 0,
@@ -33,36 +29,49 @@ const Skills = () => {
       scrollTrigger: {
         trigger: cardsRef.current,
         start: "top 80%",
-        toggleActions: "play reverse restart reverse"
-      }
+        toggleActions: "play reverse restart reverse",
+      },
     });
 
-    
-    Array.from(cards).forEach(card => {
-      card.addEventListener('mouseenter', () => {
+    // Store event listener cleanup functions
+    const cleanupFuncs = [];
+
+    Array.from(cards).forEach((card) => {
+      const enterHandler = () => {
         gsap.to(card, {
           scale: 1.1,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
-      });
+      };
 
-      card.addEventListener('mouseleave', () => {
+      const leaveHandler = () => {
         gsap.to(card, {
           scale: 1,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
+      };
+
+      card.addEventListener("mouseenter", enterHandler);
+      card.addEventListener("mouseleave", leaveHandler);
+
+      cleanupFuncs.push(() => {
+        card.removeEventListener("mouseenter", enterHandler);
+        card.removeEventListener("mouseleave", leaveHandler);
       });
     });
 
-    
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Clean up ScrollTrigger
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Clean up event listeners
+      cleanupFuncs.forEach((cleanup) => cleanup());
+      // Kill animation
+      tl.kill();
     };
   }, []);
 
- 
   return (
     <div
       className="min-h-[100vh] bg-gradient-to-b from-transparent to-purple-900/10"
@@ -85,7 +94,7 @@ const Skills = () => {
         className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-7   lg:max-w-[80vw] max-w-[90vw]"
         style={{
           margin: "50px auto",
-          paddingBottom: "50px", // Add bottom padding for spacing 
+          paddingBottom: "50px", // Add bottom padding for spacing
         }}
       >
         <SpotlightCard
