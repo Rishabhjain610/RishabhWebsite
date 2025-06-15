@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
 
-
 import "../App.css";
 import SpotlightCard from "./SpotlightCard";
 import laptop1 from "../assets/laptop1.png";
@@ -40,9 +39,10 @@ const Skills = () => {
         }}
       >
         <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}>
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <SpotlightCard
             className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
@@ -175,7 +175,7 @@ const Skills = () => {
               Blogify is a full-stack blog application that allows users to
               create, read, update, and delete blog posts. It features secure
               authentication, rich text content management, and supports image
-              uploads using Multer. 
+              uploads using Multer.
             </p>
 
             <div style={{ margin: "10px 20px 0px 20px" }}>

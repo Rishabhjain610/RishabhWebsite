@@ -11,7 +11,6 @@
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Logo styling for all screen sizes */
 .navbar-logo {
   height: 20px;
   margin-top: 30px;
@@ -20,7 +19,6 @@
   transition: all 0.3s ease;
 }
 
-/* Logo styling for large screens (1024px and above) */
 @media (min-width: 1024px) {
   .navbar-logo {
     height: 25px;
@@ -60,10 +58,6 @@
   }
 }
 
-/* Mobile navigation styling */
-/* ...existing code... */
-
-/* Shiny button effects */
 .shine-effect {
   position: relative;
   overflow: hidden;
@@ -103,7 +97,7 @@
   }
 }
 
-/* Button pulse effect */
+
 .button-pulse {
   animation: buttonPulse 2s infinite;
 }

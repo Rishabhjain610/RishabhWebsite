@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/all";
-import Timeline from "./Timeline";
+
 import "../App.css";
 import SpotlightCard from "./SpotlightCard";
 
