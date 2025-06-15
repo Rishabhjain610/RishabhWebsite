@@ -8,8 +8,8 @@ import laptop1 from "../assets/laptop1.png";
 import { SiGithub } from "react-icons/si";
 import taskify from "../assets/taskify.mp4";
 import blogify from "../assets/blogify.mp4";
-import AirBnb from "../assets/airbnb.mp4";
-import JobPrep from "../assets/jobprep.mp4";
+import AirBnb from "../assets/AirBnb.mp4";
+import JobPrep from "../assets/JobPrep.mp4";
 import tesla from "../assets/tesla.mp4";
 import Shiksha from "../assets/shiksha.mp4";
 
