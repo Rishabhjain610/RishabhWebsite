@@ -1,18 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+
 import { motion } from "framer-motion";
-import { ScrollTrigger } from "gsap/all";
-import Timeline from "./Timeline";
+
 import "../App.css";
-import SpotlightCard from "./SpotlightCard";
-import laptop1 from "../assets/laptop1.png";
-import { SiGithub } from "react-icons/si";
-import taskify from "../assets/taskify.mp4";
-import blogify from "../assets/blogify.mp4";
-import AirBnb from "../assets/airbnb.mp4";
-import JobPrep from "../assets/jobprep.mp4";
-import tesla from "../assets/tesla.mp4";
-import Shiksha from "../assets/shiksha.mp4";
+
+import Timeline2 from "./Timeline2";
 
 const Experience = () => {
   return (
@@ -32,7 +24,9 @@ const Experience = () => {
         My
         <h2 className="text-center text-5xl text-purple-500">Experience</h2>
       </motion.h1>
-      
+      <div>
+        <Timeline2 />
+      </div>
     </div>
   );
 };

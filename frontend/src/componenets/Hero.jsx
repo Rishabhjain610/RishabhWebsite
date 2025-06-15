@@ -1,7 +1,6 @@
-
 import React, { useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import "../App.css";
 import Hero3 from "../assets/Hero3.png";
@@ -18,7 +17,6 @@ const Hero = () => {
       transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
     },
   };
-  
 
   const buttonHoverVariants = {
     initial: { scale: 1 },
@@ -145,14 +143,10 @@ const Hero = () => {
                 View Projects
               </motion.a>
             </div>
-            
-
 
             <div className="flex gap-6" style={{ marginTop: "20px" }}>
               <motion.a
-                href="https://github.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://github.com/Rishabhjain610"
                 className="text-gray-400 hover:text-purple-500 transition-colors duration-300"
                 variants={iconHoverVariants}
                 whileHover="hover"
@@ -161,9 +155,7 @@ const Hero = () => {
                 <FaGithub size={24} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/rishabhjain610/"
                 className="text-gray-400 hover:text-purple-500 transition-colors duration-300"
                 variants={iconHoverVariants}
                 whileHover="hover"
@@ -172,26 +164,24 @@ const Hero = () => {
                 <FaLinkedin size={24} />
               </motion.a>
               <motion.a
-                href="https://twitter.com/"
+                href="https://instagram.com/rishabh_jain610"
                 className="text-gray-400 hover:text-purple-500 transition-colors duration-300"
                 variants={iconHoverVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
-                <FaTwitter size={24} />
+                <FaInstagram size={24} />
               </motion.a>
             </div>
           </div>
           <div className="relative w-full top-10 md:top-0 md:w-[500px]">
-        <img
-          src={Hero3}
-          alt="Hero illustration"
-          className="w-full h-auto "
-          loading="lazy"
-        />
-      </div>
-
-          
+            <img
+              src={Hero3}
+              alt="Hero illustration"
+              className="w-full h-auto "
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
 
@@ -206,7 +196,6 @@ const Hero = () => {
         </div>
       </div>
     </section>
-    
   );
 };
 

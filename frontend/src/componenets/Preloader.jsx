@@ -3,18 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../App.css";
 
 const Preloader = () => {
-  const [isLoading1,setisLoading1]  = useState(true);
+  const [isLoading1, setisLoading1] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-     
       setisLoading1(false);
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
   const svgText = "< Rishabh Jain />";
-
 
   const containerVariants = {
     initial: { opacity: 0 },
@@ -38,7 +36,6 @@ const Preloader = () => {
     },
   };
 
-
   const textContainerVariants = {
     animate: {
       transition: {
@@ -53,7 +50,6 @@ const Preloader = () => {
       },
     },
   };
-
 
   const letterVariants = {
     initial: {
@@ -80,7 +76,6 @@ const Preloader = () => {
       },
     },
   };
-
 
   const loaderGroupVariants = {
     initial: { opacity: 0, y: 20 },
@@ -119,7 +114,6 @@ const Preloader = () => {
           animate="animate"
           exit="exit"
         >
-          
           <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <div className="stars-small"></div>
             <div className="stars-medium"></div>
@@ -127,7 +121,6 @@ const Preloader = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center w-full relative z-10">
-            
             <motion.svg
               width="100%"
               height="auto"
@@ -137,7 +130,6 @@ const Preloader = () => {
               variants={textContainerVariants}
             >
               <defs>
-                
                 <linearGradient
                   id="cosmic-gradient"
                   x1="0%"
@@ -151,7 +143,6 @@ const Preloader = () => {
                   <stop offset="100%" stopColor="#00F5D4" />
                 </linearGradient>
 
-                
                 <filter
                   id="space-glow"
                   x="-50%"
@@ -171,7 +162,6 @@ const Preloader = () => {
                 </filter>
               </defs>
 
-              
               <text
                 x="50%"
                 y="50%"
@@ -187,7 +177,6 @@ const Preloader = () => {
                 {svgText}
               </text>
 
-              
               <text
                 x="50%"
                 y="50%"
@@ -213,15 +202,12 @@ const Preloader = () => {
             </motion.svg>
           </div>
 
-          
           <motion.div
             className="flex flex-col items-center relative z-10"
             variants={loaderGroupVariants}
             style={{ marginTop: "clamp(4rem, 10vh, 6rem)" }}
           >
-            
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56">
-              
               <div
                 className="absolute inset-0 border-[3px] border-dashed border-purple-400/40 rounded-full"
                 style={{
@@ -230,7 +216,6 @@ const Preloader = () => {
                 }}
               />
 
-              
               <div
                 className="absolute inset-[8px] sm:inset-[10px] border-[3px] border-dashed border-cyan-300/40 rounded-full"
                 style={{
@@ -239,7 +224,6 @@ const Preloader = () => {
                 }}
               />
 
-              
               <div
                 className="absolute inset-[20px] sm:inset-[25px] border-[2px] border-dashed border-fuchsia-300/40 rounded-full"
                 style={{
@@ -248,7 +232,6 @@ const Preloader = () => {
                 }}
               />
 
-              
               <div
                 className="absolute top-1/2 left-1/2 w-14 h-14 sm:w-16 sm:h-16 -ml-7 sm:-ml-8 -mt-7 sm:-mt-8 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500"
                 style={{
@@ -257,7 +240,6 @@ const Preloader = () => {
                 }}
               />
 
-              
               <div
                 className="absolute top-0 left-1/2 -ml-2.5 sm:-ml-3 -mt-2.5 sm:-mt-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400"
                 style={{
@@ -266,7 +248,6 @@ const Preloader = () => {
                 }}
               />
 
-             
               <div
                 className="absolute top-1/2 left-0 -ml-2 sm:-ml-2.5 -mt-2 sm:-mt-2.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500"
                 style={{
@@ -275,7 +256,6 @@ const Preloader = () => {
                 }}
               />
 
-            
               <div
                 className="absolute bottom-1/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"
                 style={{
@@ -285,7 +265,6 @@ const Preloader = () => {
               />
             </div>
 
-           
             <div
               className="mt-6 text-cyan-300 text-sm sm:text-base font-[Orbitron] tracking-widest "
               style={{
@@ -297,7 +276,6 @@ const Preloader = () => {
             </div>
           </motion.div>
 
-       
           <style>
             {`
               /* Import Space Grotesk font */

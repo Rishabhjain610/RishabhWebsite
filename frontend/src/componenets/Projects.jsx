@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+
 import { motion } from "framer-motion";
-import { ScrollTrigger } from "gsap/all";
-import Timeline from "./Timeline";
+
+
 import "../App.css";
 import SpotlightCard from "./SpotlightCard";
 import laptop1 from "../assets/laptop1.png";
@@ -175,8 +175,7 @@ const Skills = () => {
               Blogify is a full-stack blog application that allows users to
               create, read, update, and delete blog posts. It features secure
               authentication, rich text content management, and supports image
-              uploads using Multer. The app is fully responsive and built with a
-              clean, minimal design.
+              uploads using Multer. 
             </p>
 
             <div style={{ margin: "10px 20px 0px 20px" }}>
@@ -584,7 +583,7 @@ const Skills = () => {
                 </span>
               </div>
               <a
-                href="https://github.com/Rishabhjain610/Taskflow"
+                href="https://github.com/Rishabhjain610/shiksha"
                 className="flex items-center justify-center  text-gray-300 hover:text-purple-500 transition-colors duration-300"
               >
                 <div className="flex items-center justify-center">
