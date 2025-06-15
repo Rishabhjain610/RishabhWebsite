@@ -8,7 +8,8 @@ import About from "./componenets/About";
 import gsap from "gsap";
 import Skills from "./componenets/Skills";
 import Projects from "./componenets/Projects";
-
+import Experience from "./componenets/Experience";
+import Contact from "./componenets/Contact";
 // Register GSAP plugins
 
 const App = () => {
@@ -26,6 +27,8 @@ const App = () => {
           <About />
           <Skills />
           <Projects/>
+          <Experience/>
+          <Contact/>
       
       </div>
     </>

@@ -7,7 +7,7 @@ import "../App.css";
 const About = () => {
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-transparent to-purple-900/10" id="about">
+    <div className="min-h-[80vh] bg-gradient-to-b from-transparent to-purple-900/10" id="about">
       <motion.h1
         className="font1 font-medium text-center text-5xl flex items-center justify-center gap-3 "
         style={{

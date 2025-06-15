@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.2.0",
     "@lottiefiles/dotlottie-react": "^0.14.1",
     "@tailwindcss/vite": "^4.1.8",
+    "aos": "^2.3.4",
+    "dotenv": "^16.5.0",
     "framer-motion": "^12.17.3",
     "gsap": "^3.13.0",
     "lucide-react": "^0.514.0",

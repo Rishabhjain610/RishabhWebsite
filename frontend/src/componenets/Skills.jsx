@@ -74,7 +74,7 @@ const Skills = () => {
 
   return (
     <div
-      className="min-h-[100vh] bg-gradient-to-b from-transparent to-purple-900/10"
+      className="min-h-[80vh] bg-gradient-to-b from-transparent to-purple-900/10"
       id="skills"
     >
       <motion.h1
