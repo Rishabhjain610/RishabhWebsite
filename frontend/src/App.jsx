@@ -12,6 +12,7 @@ import Experience from "./componenets/Experience";
 import Contact from "./componenets/Contact";
 
 const App = () => {
+ 
   return (
     <>
       <Preloader />
@@ -26,6 +27,7 @@ const App = () => {
         <Projects />
         <Experience />
         <Contact />
+      
       </div>
     </>
   );

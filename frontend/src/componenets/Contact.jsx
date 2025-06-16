@@ -428,6 +428,12 @@ const Contact = () => {
           </SpotlightCard>
         </motion.div>
       </div>
+     <p class="text-center text-white font1" style={{
+      padding:"20px"
+     }}>
+  Made with <span class="text-purple-500ray-700">&#128156;</span> by Rishabh Jain
+</p>
+
     </div>
   );
 };
