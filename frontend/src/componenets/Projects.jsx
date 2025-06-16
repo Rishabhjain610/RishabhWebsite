@@ -32,23 +32,24 @@ const Skills = () => {
         <h2 className="text-center text-5xl text-purple-500">Projects</h2>
       </motion.h1>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:max-w-[80vw] max-w-[90vw]"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:max-w-[80vw] max-w-[90vw] justify-items-center"
         style={{
           margin: "50px auto",
           paddingBottom: "50px",
         }}
       >
         <motion.div
+        
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             spotlightColor="rgba(139, 92, 246, 0.15)"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -61,8 +62,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%] object-cover  top-[24%] left-[16%] w-[67%] h-[40%] 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]
               "
               ></video>
             </div>
@@ -73,7 +74,7 @@ const Skills = () => {
               style={{
                 margin: "10px 20px",
               }}
-              className="font1 text-gray-300"
+              className="font1  text-gray-300"
             >
               TaskFlow is a simple and minimalistic full-stack To-Do application
               that allows users to add, update, and delete their daily tasks.
@@ -141,12 +142,12 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             spotlightColor="rgba(139, 92, 246, 0.15)"
             data-aos="fade-left"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -158,9 +159,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute top-[24%] left-[16%] w-[67%] h-[40%] object-cover 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
-               lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%]"
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]"
               ></video>
             </div>
             <h1 className="font1 text-3xl ">
@@ -240,12 +240,12 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             data-aos="fade-left"
             spotlightColor="rgba(139, 92, 246, 0.15)"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -257,9 +257,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute top-[24%] left-[16%] w-[67%] h-[40%] object-cover 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
-               lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%]"
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]"
               ></video>
             </div>
             <h1 className="font1 text-3xl ">
@@ -345,11 +344,11 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             spotlightColor="rgba(139, 92, 246, 0.15)"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -361,9 +360,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute top-[24%] left-[16%] w-[67%] h-[40%] object-cover 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
-               lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%]"
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]"
               ></video>
             </div>
             <h1 className="font1 text-3xl ">
@@ -433,11 +431,11 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             spotlightColor="rgba(139, 92, 246, 0.15)"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -449,9 +447,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute top-[24%] left-[16%] w-[67%] h-[40%] object-cover 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
-               lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%]"
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]"
               ></video>
             </div>
             <h1 className="font1 text-3xl ">
@@ -521,11 +518,11 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
         >
           <SpotlightCard
-            className="custom-spotlight-card h-[850px] w-[350px] md:h-[1000px] lg:h-[800px]
+            className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] lg:h-[800px] lg:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
             spotlightColor="rgba(139, 92, 246, 0.15)"
           >
-            <div className="relative h-[50vh] w-full">
+            <div className="relative h-[45vh] w-full">
               <img
                 src={laptop1}
                 alt="laptop frame"
@@ -537,9 +534,8 @@ const Skills = () => {
                 loop
                 muted
                 playsInline
-                className="absolute top-[24%] left-[16%] w-[67%] h-[40%] object-cover 
-               md:top-[32%] md:left-[16%] md:w-[68%] md:h-[27%]
-               lg:top-[22%] lg:left-[16%] lg:w-[68%] lg:h-[42%]"
+                className="absolute lg:top-[24%] lg:left-[16%] lg:w-[67%] lg:h-[48%] object-cover  top-[32%] left-[16%] w-[68%] h-[36%] 
+               sm:top-[36%] sm:left-[16%] sm:w-[67%] sm:h-[29%]"
               ></video>
             </div>
             <h1 className="font1 text-3xl ">

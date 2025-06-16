@@ -76,7 +76,12 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div
             className="w-full relative top-[-40px] md:top-[10px] md:w-3/5 mb-12 md:mb-0"
-            style={{ paddingLeft: "45px" }}
+            style={{
+              ["@media (min-width: 1024px)"]: {
+                paddingLeft: "45px",
+              },
+              padding: "10px 15px"
+            }}
           >
             <h2 className="text-3xl font-medium text-purple-400 mb-3">
               Hello, I'm
@@ -112,7 +117,7 @@ const Hero = () => {
               solving problems creatively.
             </p>
 
-            <div className="flex gap-8 my-24" style={{ marginTop: "25px" }}>
+            <div className="flex gap-8 " style={{ marginTop: "25px" }}>
               <motion.a
                 href="#contact"
                 className="glow bg-purple-500 hover:bg-purple-600 text-white rounded-lg font-medium font1 relative overflow-hidden"
@@ -174,7 +179,7 @@ const Hero = () => {
               </motion.a>
             </div>
           </div>
-          <div className="relative w-full top-10 md:top-0 md:w-[500px]">
+          <div className="relative w-[300px] top-10 md:top-0 md:w-[500px]">
             <img
               src={Hero3}
               alt="Hero illustration"

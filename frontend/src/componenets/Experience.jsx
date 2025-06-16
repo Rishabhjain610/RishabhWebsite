@@ -13,7 +13,7 @@ const Experience = () => {
       id="work"
     >
       <motion.h1
-        className="font1 font-medium text-center text-5xl flex items-center justify-center gap-3 "
+        className="font1 font-medium text-center text-[45px] flex items-center justify-center gap-3 "
         style={{
           marginTop: "70px",
         }}
@@ -22,7 +22,7 @@ const Experience = () => {
         transition={{ duration: 0.5 }}
       >
         My
-        <h2 className="text-center text-5xl text-purple-500">Experience</h2>
+        <h2 className="text-center text-[45px] text-purple-500">Experience</h2>
       </motion.h1>
       <div>
         <Timeline2 />

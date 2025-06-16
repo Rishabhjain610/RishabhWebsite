@@ -74,7 +74,7 @@ const Skills = () => {
 
   return (
     <div
-      className="min-h-[80vh] bg-gradient-to-b from-transparent to-purple-900/10"
+      className="min-h-[100vh] flex  items-center justify-center flex-col bg-gradient-to-b from-transparent to-purple-900/10"
       id="skills"
     >
       <motion.h1
@@ -91,14 +91,16 @@ const Skills = () => {
       </motion.h1>
       <div
         ref={cardsRef}
-        className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-7   lg:max-w-[80vw] max-w-[90vw]"
+        className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-5 sm:gap-x-6 gap-x-3   lg:max-w-[80vw] max-w-[90vw] justify-items-center"
         style={{
-          margin: "50px auto",
-          paddingBottom: "50px", // Add bottom padding for spacing
+          paddingBottom: "50px",
+          paddingTop:"50px" // Add bottom padding for spacing
+           // Add bottom padding for spacing
         }}
       >
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col justify-center rounded-3xl "
+          className="custom-spotlight-card md:h-[200px] md:w-[160px]
+          h-[180px] w-[140px]  bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col justify-center rounded-3xl "
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -130,7 +132,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">HTML</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px]  h-[180px] w-[140px]  md:w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -162,7 +164,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">CSS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center flex-col justify-center rounded-3xl"
+          className="custom-spotlight-card h-[180px] w-[140px] md:h-[200px] md:w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center flex-col justify-center rounded-3xl"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -189,7 +191,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">JavaScript</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -224,7 +226,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">React JS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -254,7 +256,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">Node JS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -285,7 +287,7 @@ const Skills = () => {
         </SpotlightCard>
 
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -401,7 +403,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">Mongo DB</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card  md:h-[200px] md:w-[160px] h-[180px] w-[140px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -451,7 +453,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">My SQL</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card  md:h-[200px] md:w-[160px] w-[140px] h-[180px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -488,7 +490,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">Tailwind CSS</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -518,7 +520,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">BootStrap</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -548,7 +550,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">Python</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -601,7 +603,7 @@ const Skills = () => {
         </SpotlightCard>
 
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -644,10 +646,10 @@ const Skills = () => {
               clip-rule="evenodd"
             ></path>
           </motion.svg>
-          <h1 className="font1 text-xl tracking-wide">C Programming</h1>
+          <h1 className="font1 text-xl tracking-wide">C</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -679,7 +681,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">Postman API</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -716,7 +718,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">GSAP</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -742,10 +744,10 @@ const Skills = () => {
             <path d="M12 12l-8 -8v16l16 -16v16l-4 -4" />
             <path d="M20 12l-8 8l-4 -4" />
           </motion.svg>
-          <h1 className="font1 text-xl tracking-wide">Framer Motion</h1>
+          <h1 className="font1 text-xl ">Motion</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg
@@ -768,7 +770,7 @@ const Skills = () => {
           <h1 className="font1 text-xl tracking-wide">GitHub</h1>
         </SpotlightCard>
         <SpotlightCard
-          className="custom-spotlight-card h-[200px] w-[160px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+          className="custom-spotlight-card md:h-[200px] md:w-[160px] h-[180px] w-[140px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
           spotlightColor="rgba(139, 92, 246, 0.4)"
         >
           <motion.svg

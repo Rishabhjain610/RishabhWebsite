@@ -169,7 +169,7 @@ const Preloader = () => {
                 fill="rgba(255,255,255,0.07)"
                 className="font-extrabold font-[Orbitron]"
                 style={{
-                  fontSize: "clamp(52px, 10.5vw, 104px)",
+                  fontSize: "clamp(48px, 8.5vw, 84px)",
                   dominantBaseline: "middle",
                   filter: "blur(8px)",
                 }}
@@ -185,7 +185,7 @@ const Preloader = () => {
                 filter="url(#space-glow)"
                 className="font-extrabold font-[Orbitron]"
                 style={{
-                  fontSize: "clamp(50px, 10vw, 100px)",
+                  fontSize: "clamp(46px, 8vw, 80px)",
                   dominantBaseline: "middle",
                 }}
               >

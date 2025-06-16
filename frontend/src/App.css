@@ -166,3 +166,15 @@
     left: 24px !important;
   }
 }
+.about1{
+  @media(min-width: 640px){
+    padding: 25px 150px 0px 30px;
+  }
+  
+}
+.para1{
+  margin: 10px ;
+  @media(min-width: 640px){
+    margin: 0px;
+  }
+}

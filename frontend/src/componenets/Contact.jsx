@@ -118,7 +118,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="font1 text-2xl tracking-wider text-center md:text-start">
+          <p className="font1 text-2xl tracking-wider text-start">
             Thank you for visiting,whether you have a question, collaboration
             idea, or just want to say hello, I’d be delighted to hear from you.
             Feel free to use the form below or send me a message directly,I
