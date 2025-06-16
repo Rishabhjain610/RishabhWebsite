@@ -12,11 +12,21 @@ import Experience from "./componenets/Experience";
 import Contact from "./componenets/Contact";
 
 const App = () => {
- 
+ const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time (replace with your real loading logic)
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
     <>
-      <Preloader />
-
+    
       <div className="min-h-[600vh] text-white overflow-hidden">
         <Bg />
 
