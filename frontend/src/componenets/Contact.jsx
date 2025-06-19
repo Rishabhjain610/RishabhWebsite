@@ -112,13 +112,15 @@ const Contact = () => {
         }}
       >
         <motion.div
-          className="w-full "
-          style={{ margin: "20px 50px" }}
+          className="w-full bg-transparent backdrop-blur-xs border-1 border-purple-500 rounded-2xl "
+          style={{ margin: "20px 50px" ,
+            padding:"40px 20px"
+          }}
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="font1 text-2xl tracking-wider text-start">
+          <p className="text-center text-xl sm:text-2xl tracking-wider md:text-start">
             Thank you for visiting,whether you have a question, collaboration
             idea, or just want to say hello, I’d be delighted to hear from you.
             Feel free to use the form below or send me a message directly,I

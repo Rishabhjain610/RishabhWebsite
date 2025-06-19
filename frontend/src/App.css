@@ -178,3 +178,19 @@
     margin: 0px;
   }
 }
+.button1{
+  @media (max-width: 639px) {
+
+    margin: 20px;
+  }
+  @media (min-width: 640px) {
+
+    margin: 0px 0px 0px 20px;
+  }
+}
+  
+.box1{
+  @media (min-width:639px){
+    margin-top: 40px;
+  }
+}
