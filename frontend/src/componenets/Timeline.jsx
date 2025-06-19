@@ -146,7 +146,7 @@ const ResponsiveTimeline = () => {
                 style={{
                   width: "40px",
                   height: "40px",
-                  backgroundColor: "#5b21b6",
+                  backgroundColor: "rgba(30,30,30,0.9)",
                   borderRadius: "9999px",
                   border: "2px solid #a855f7",
                   display: "flex",

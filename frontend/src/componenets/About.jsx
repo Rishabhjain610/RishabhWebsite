@@ -40,7 +40,7 @@ const About = () => {
         }}
       >
         <motion.div
-          className="flex flex-col sm:w-[50%] md:w-full lg:w-[50%] border-1 border-purple-500  rounded-2xl hover:shadow-md shadow-purple-500 transition-all duration-300 ease-in-out bg-purple-500/8 sm:h-[62vh] box1 lg:h-[60vh]"
+          className="flex flex-col sm:w-[50%] md:w-full lg:w-[50%] border-1 border-purple-500  rounded-2xl hover:shadow-md shadow-purple-500 transition-all duration-300 ease-in-out bg-purple-500/8 sm:h-[65vh] box1 lg:h-[60vh]"
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -48,7 +48,7 @@ const About = () => {
           
         >
           <motion.div
-            className="w-full  text-xl text-center sm:text-start sm:text-2xl "
+            className="w-full nunito text-xl text-center  sm:text-start sm:text-2xl "
             style={{ padding: "40px 20px"}}
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}

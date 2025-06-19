@@ -209,11 +209,11 @@ const Timeline2 = () => {
                     height: "48px",
                     borderRadius: "50%",
                     backgroundColor: "rgba(30,30,30,0.9)",
-                    border: "3px solid #8B5CF6",
+                    border: "3px solid #A347F6",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 0 20px rgba(139,92,246,0.4)",
+                    boxShadow: "0 0 20px rgba(163,71,246,0.4)",
                   }}
                 >
                   
@@ -227,7 +227,7 @@ const Timeline2 = () => {
                   backdropFilter: "blur(10px)",
                   padding: "24px",
                   borderRadius: "12px",
-                  border: "1px solid rgba(139,92,246,0.2)",
+                  border: "1px solid #A347F6",
                   "@media (max-width: 768px)": {
                     width: "calc(100% - 64px)",
                     marginLeft: "64px",
@@ -236,7 +236,7 @@ const Timeline2 = () => {
                 whileHover={{
                   scale: 1.02,
                   
-                  boxShadow: "0 8px 30px rgba(139,92,246,0.2)",
+                  boxShadow: "0 8px 15px #A347F6",
                 }}
                 transition={{ duration: 0.3 }}
                 className="bg-transparent "
@@ -245,7 +245,7 @@ const Timeline2 = () => {
                   style={{
                     fontSize: "1.25rem",
                     fontWeight: "bold",
-                    color: "#8B5CF6",
+                    color: "#A347F6",
                     marginBottom: "8px",
                   }}
                 >
@@ -262,7 +262,7 @@ const Timeline2 = () => {
                 </p>
                 <p
                   style={{
-                    color: "#8B5CF6",
+                    color: "#A347F6",
                     fontSize: "0.875rem",
                     fontWeight: "500",
                     marginBottom: "4px",

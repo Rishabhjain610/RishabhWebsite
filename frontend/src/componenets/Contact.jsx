@@ -112,7 +112,7 @@ const Contact = () => {
         }}
       >
         <motion.div
-          className="w-full bg-transparent backdrop-blur-xs border-1 border-purple-500 rounded-2xl "
+          className="w-full bg-transparent backdrop-blur-xs border-1 border-purple-500 rounded-2xl hover:shadow-md shadow-purple-500 transition-all duration-300 ease-in-out"
           style={{ margin: "20px 50px" ,
             padding:"40px 20px"
           }}
@@ -120,7 +120,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-center text-xl sm:text-2xl tracking-wider md:text-start">
+          <p className="text-center text-xl nunito sm:text-2xl tracking-wider md:text-start">
             Thank you for visiting,whether you have a question, collaboration
             idea, or just want to say hello, I’d be delighted to hear from you.
             Feel free to use the form below or send me a message directly,I
