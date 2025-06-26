@@ -12,6 +12,7 @@ import AirBnb from "../assets/AirBnb.mp4";
 import JobPrep from "../assets/JobPrep.mp4";
 import tesla from "../assets/tesla.mp4";
 import Shiksha from "../assets/shiksha.mp4";
+import EduWorld from "../assets/EduWorld.mp4";
 
 const Skills = () => {
   return (
@@ -51,8 +52,8 @@ const Skills = () => {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <a href="https://github.com/Rishabhjain610/Taskflow">
@@ -250,8 +251,8 @@ const Skills = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <a href="https://github.com/Rishabhjain610/airBnb">
@@ -358,8 +359,8 @@ const Skills = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <a href="https://github.com/Rishabhjain610/Jobprepfinal">
@@ -538,8 +539,8 @@ const Skills = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <a href="https://github.com/Rishabhjain610/shiksha">
@@ -611,6 +612,119 @@ const Skills = () => {
                 <a
                   href="https://github.com/Rishabhjain610/shiksha"
                   className="flex items-center justify-center  text-gray-300 hover:text-purple-500 transition-colors duration-300"
+                >
+                  <div className="flex items-center justify-center">
+                    <SiGithub
+                      size={32}
+                      className="bg-black rounded-full p-1"
+                      style={{
+                        marginTop: "20px",
+                      }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </SpotlightCard>
+          </a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <a href="https://github.com/Rishabhjain610/EduworldFinal">
+            <SpotlightCard
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
+      bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
+              spotlightColor="rgba(139, 92, 246, 0.15)"
+              data-aos="fade-left"
+            >
+              <div className="relative h-[36vh] w-[95%]">
+                <img
+                  src={laptop1}
+                  alt="laptop frame"
+                  className="absolute h-[37vh] w-full object-contain"
+                />
+                <video
+                  src={EduWorld}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute lg:top-[13%] lg:left-[14%] lg:w-[71%] lg:h-[59%] object-cover top-[22%] left-[14%] w-[72%] h-[45%]
+         sm:top-[27%] sm:left-[14%] sm:w-[71%] sm:h-[37%]"
+                ></video>
+              </div>
+              <h1 className="font1 text-3xl ">
+                Edu<span className="text-purple-500">World</span>
+              </h1>
+              <p
+                style={{ margin: "10px 20px" }}
+                className="font1 text-gray-300"
+              >
+                A full-featured educational platform for teachers and students
+                with AI, code editor, notes, chatbot, canteen, events, and video
+                call features.
+              </p>
+
+              <div style={{ margin: "10px 20px 0px 20px" }}>
+                <h2
+                  className="font1 font-bold text-xl"
+                  style={{
+                    marginBottom: "10px",
+                    color: "#b5b5b5a4",
+                  }}
+                >
+                  Tech Stack:
+                </h2>
+                <div className="flex flex-wrap gap-2 ">
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Mongo DB
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Express JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    React JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Node JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Material UI
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Tailwind CSS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    GSAP
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Gemini API
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Hugging Face
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Twilio
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    jsPDF
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Multer
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Cloudinary
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Zego Tech
+                  </span>
+                </div>
+
+                <a
+                  href="https://github.com/Rishabhjain610/EduworldFinal"
+                  className="flex items-center justify-center text-gray-300 hover:text-purple-500 transition-colors duration-300"
                 >
                   <div className="flex items-center justify-center">
                     <SiGithub
