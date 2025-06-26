@@ -104,7 +104,14 @@ const Contact = () => {
         Contact
         <h2 className="text-center text-5xl text-purple-500">Me</h2>
       </motion.h1>
-
+      <div className="flex justify-center" style={{ marginTop: "10px" }}>
+        <motion.div
+          className="flex items-center bg-purple-500 h-1 rounded-full"
+          initial={{ width: 0 }}
+          whileInView={{ width: "100px" }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        />
+      </div>
       <div
         className="flex flex-col md:flex-row items-center justify-center gap-10"
         style={{
@@ -113,9 +120,7 @@ const Contact = () => {
       >
         <motion.div
           className="w-full bg-transparent backdrop-blur-xs border-1 border-purple-500 rounded-2xl hover:shadow-md shadow-purple-500 transition-all duration-300 ease-in-out"
-          style={{ margin: "20px 50px" ,
-            padding:"40px 20px"
-          }}
+          style={{ margin: "20px 50px", padding: "40px 20px" }}
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -430,12 +435,15 @@ const Contact = () => {
           </SpotlightCard>
         </motion.div>
       </div>
-     <p class="text-center text-white font1" style={{
-      padding:"20px"
-     }}>
-  Made with <span class="text-purple-500ray-700">&#128156;</span> by Rishabh Jain
-</p>
-
+      <p
+        class="text-center text-white font1"
+        style={{
+          padding: "20px",
+        }}
+      >
+        Made with <span class="text-purple-500ray-700">&#128156;</span> by
+        Rishabh Jain
+      </p>
     </div>
   );
 };

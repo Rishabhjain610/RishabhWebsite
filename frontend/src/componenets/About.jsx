@@ -32,6 +32,15 @@ const About = () => {
         About
         <h2 className="text-center text-5xl text-purple-500">Me</h2>
       </motion.h1>
+      <div className="flex justify-center" style={{ marginTop: "10px" }}>
+        <motion.div
+          className="flex items-center bg-purple-500 h-1 rounded-full"
+          initial={{ width: 0 }}
+          whileInView={{ width: "100px" }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          
+        />
+      </div>
 
       <div
         className="flex flex-col md:flex-row items-center justify-center gap-8 "
@@ -44,12 +53,10 @@ const About = () => {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          
-          
         >
           <motion.div
-            className="w-full nunito text-xl text-center  sm:text-start sm:text-2xl "
-            style={{ padding: "40px 20px"}}
+            className="w-full nunito text-xl text-center  sm:text-start xl:text-2xl "
+            style={{ padding: "40px 20px" }}
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}

@@ -24,6 +24,18 @@ const Experience = () => {
         My
         <h2 className="text-center text-[45px] text-purple-500">Experience</h2>
       </motion.h1>
+      <div className="flex justify-center" style={{ marginTop: "10px" }}>
+        <motion.h1
+          className="flex items-center bg-purple-500 h-1 rounded-full"
+          initial={{
+            width: 0,
+          }}
+          whileInView={{
+            width: "100px",
+          }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        ></motion.h1>
+      </div>
       <div>
         <Timeline2 />
       </div>

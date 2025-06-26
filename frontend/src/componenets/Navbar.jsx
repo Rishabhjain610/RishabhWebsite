@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   FaHome,
@@ -29,7 +28,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden lg:flex items-center mr-6">
-        <ul className="flex gap-10">
+        <ul className="flex gap-6 xl:gap-10">
           <li>
             <a
               href="#home"
