@@ -57,7 +57,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/Taskflow">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
@@ -155,7 +155,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/Blogify">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
@@ -256,7 +256,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/airBnb">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
@@ -364,7 +364,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/Jobprepfinal">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
@@ -454,7 +454,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/tesla">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
@@ -544,7 +544,7 @@ const Skills = () => {
         >
           <a href="https://github.com/Rishabhjain610/shiksha">
             <SpotlightCard
-              className="custom-spotlight-card h-[900px] w-[300px] sm:h-[1050px] sm:w-[350px] xl:h-[800px] xl:w-[350px]
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
         bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
               spotlightColor="rgba(139, 92, 246, 0.15)"
               data-aos="fade-left"
