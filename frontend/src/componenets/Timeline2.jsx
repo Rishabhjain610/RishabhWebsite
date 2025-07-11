@@ -141,6 +141,7 @@ const Timeline2 = () => {
     },
   };
 
+  
   return (
     <div
       style={{

@@ -200,3 +200,9 @@
   font-optical-sizing: auto;
   
 }
+/* Hide the vertical timeline line */
+.datecolor {
+  color: #A855F7 !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import "../App.css";
 
-import Timeline2 from "./Timeline2";
+import Timeline3 from "../componenets/TimeLine3";
 
 const Experience = () => {
   return (
@@ -36,8 +36,11 @@ const Experience = () => {
           transition={{ duration: 0.7, ease: "easeInOut" }}
         ></motion.h1>
       </div>
-      <div>
-        <Timeline2 />
+      <div className="mt-7" style={{
+        marginTop: "40px",
+        paddingBottom: "40px"
+      }}>
+        <Timeline3 />
       </div>
     </div>
   );
