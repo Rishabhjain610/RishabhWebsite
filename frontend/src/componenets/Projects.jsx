@@ -13,7 +13,7 @@ import JobPrep from "../assets/JobPrep.mp4";
 import tesla from "../assets/tesla.mp4";
 import Shiksha from "../assets/shiksha.mp4";
 import EduWorld from "../assets/EduWorld.mp4";
-
+import clearchat from "../assets/clearchat.mp4";
 const Skills = () => {
   return (
     <div
@@ -725,6 +725,109 @@ const Skills = () => {
                 <a
                   href="https://github.com/Rishabhjain610/EduworldFinal"
                   className="flex items-center justify-center text-gray-300 hover:text-purple-500 transition-colors duration-300"
+                >
+                  <div className="flex items-center justify-center">
+                    <SiGithub
+                      size={32}
+                      className="bg-black rounded-full p-1"
+                      style={{
+                        marginTop: "20px",
+                      }}
+                    />
+                  </div>
+                </a>
+              </div>
+            </SpotlightCard>
+          </a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <a href="https://github.com/Rishabhjain610/ClearChat">
+            <SpotlightCard
+              className="custom-spotlight-card h-[850px] w-[300px] sm:h-[900px] sm:w-[350px] xl:h-[700px] xl:w-[350px]
+        bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col  rounded-3xl hover:shadow-md hover:-translate-y-3 transform transition-all duration-300 ease-in-out backdrop-blur-xs"
+              spotlightColor="rgba(139, 92, 246, 0.15)"
+              data-aos="fade-left"
+            >
+              <div className="relative h-[36vh] w-[95%]">
+                <img
+                  src={laptop1}
+                  alt="laptop frame"
+                  className="absolute h-[37vh] w-full object-contain"
+                />
+                <video
+                  src={clearchat}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute lg:top-[13%] lg:left-[14%] lg:w-[71%] lg:h-[59%] object-cover  top-[22%] left-[14%] w-[72%] h-[45%]
+                 sm:top-[27%] sm:left-[14%] sm:w-[71%] sm:h-[37%]"
+                ></video>
+              </div>
+              <h1 className="font1 text-3xl ">
+                Clear<span className="text-purple-500">Chat</span>
+              </h1>
+              <p
+                style={{
+                  margin: "10px 20px",
+                }}
+                className="font1 text-gray-300"
+              >
+                ClearChat is a full-stack MERN real-time chat app using Redux for state management, JWT auth, Socket.IO messaging, Multer & Cloudinary media uploads, emoji support, and a responsive Tailwind UI.
+              </p>
+
+              <div style={{ margin: "10px 20px 0px 20px" }}>
+                <h2
+                  className="font1 font-bold text-xl "
+                  style={{
+                    marginBottom: "10px",
+                    color: "#b5b5b5a4",
+                  }}
+                >
+                  Tech Stack:
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    React JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Node JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Express JS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Mongo DB
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    CORS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Multer
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-sm">
+                    Tailwind CSS
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-sm">
+                    JWT
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-sm">
+                    Bcrypt
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Redux Js
+                  </span>
+                  <span className="font1 space1 bg-purple-500/20 rounded-lg text-xs">
+                    Socket.io
+                  </span>
+                </div>
+                <a
+                  href="https://github.com/Rishabhjain610/ClearChat"
+                  className="flex items-center justify-center  text-gray-300 hover:text-purple-500 transition-colors duration-300"
                 >
                   <div className="flex items-center justify-center">
                     <SiGithub
