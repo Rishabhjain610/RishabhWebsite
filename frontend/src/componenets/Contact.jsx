@@ -590,7 +590,9 @@ const Contact = () => {
             <img
               src={ContactUs2}
               alt="Contact Illustration"
-              className="h-[300px] w-[500px]"
+              className="sm:h-[300px] sm:w-[500px]  rounded-xl drop-shadow-[0_8px_32px_rgba(168,85,247,0.7)]"
+              animate={{ scale: [1, 1.07, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               
             />
           </div>

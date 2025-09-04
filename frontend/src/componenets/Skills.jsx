@@ -81,7 +81,7 @@ const Skills = () => {
 
       <motion.div
         ref={cardsRef}
-        className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-5 sm:gap-x-6 gap-x-3   lg:max-w-[80vw] max-w-[90vw] justify-items-center"
+        className="grid  grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-5 sm:gap-x-6 gap-x-3   lg:max-w-[80vw] max-w-[90vw] justify-items-center"
         style={{
           paddingBottom: "50px",
           paddingTop: "50px", // Add bottom padding for spacing
@@ -95,15 +95,14 @@ const Skills = () => {
         <motion.div variants={cardVariants}>
           <SpotlightCard
             className="custom-spotlight-card 
-          h-[170px] w-[130px]  bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col justify-center rounded-3xl "
+          sm:h-[170px] h-[150px] w-[110px] sm:w-[130px]  bg-transparent shadow-purple-500 shadow-sm flex items-center flex-col justify-center rounded-3xl "
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -132,15 +131,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card   h-[170px] w-[130px]   bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card h-[150px] w-[110px]   sm:h-[170px] sm:w-[130px]   bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -169,15 +167,15 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card h-[170px] w-[130px]   bg-transparent shadow-sm shadow-purple-500 flex items-center flex-col justify-center rounded-3xl"
+            className="custom-spotlight-card sm:h-[170px] sm:w-[130px] h-[150px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center flex-col justify-center rounded-3xl"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
+            
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -201,15 +199,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100px"
-              height="100px"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]" 
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -254,15 +251,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card   sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -294,15 +290,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -329,15 +324,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -365,14 +359,13 @@ const Skills = () => {
 
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card sm:h-[170px] sm:w-[130px] h-[150px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 128"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               whileHover={{
                 translateY: -10,
               }}
@@ -486,15 +479,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -536,20 +528,19 @@ const Skills = () => {
                 d="M33.098,14.223c-0.215-0.004-0.367,0.023-0.528,0.059c0,0.01,0,0.019,0,0.03c0.01,0,0.019,0,0.03,0 c0.103,0.21,0.283,0.347,0.41,0.528c0.098,0.205,0.195,0.41,0.293,0.615c0.01-0.01,0.019-0.019,0.029-0.029 c0.181-0.128,0.265-0.332,0.264-0.645c-0.073-0.077-0.084-0.173-0.147-0.264C33.365,14.394,33.203,14.325,33.098,14.223z"
               ></path>
             </motion.svg>
-            <h1 className="font1 text-lg">My SQL</h1>
+            <h1 className="font1 text-lg">MySQL</h1>
           </SpotlightCard>
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card   w-[130px] h-[170px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card   sm:w-[130px] w-[110px] sm:h-[170px] h-[150px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -583,15 +574,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -618,15 +608,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -654,15 +643,14 @@ const Skills = () => {
 
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -711,15 +699,14 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 48 48"
               whileHover={{
                 translateY: -10,
@@ -762,14 +749,13 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               viewBox="0 0 128 128"
               xmlns="http://www.w3.org/2000/svg"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               whileHover={{
                 translateY: -10,
               }}
@@ -799,13 +785,13 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
+              
               fill="none"
               viewBox="0 0 82 30"
               whileHover={{
@@ -841,13 +827,13 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
+              
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -875,13 +861,12 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               fill="currentColor"
               class="bi bi-github"
               viewBox="0 0 16 16"
@@ -903,14 +888,13 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 128"
-              width="100px"
-              height="100px"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               whileHover={{
                 translateY: -10,
               }}
@@ -941,13 +925,12 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              width="100"
-              height="100"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -975,14 +958,13 @@ const Skills = () => {
         </motion.div>
         <motion.div variants={cardVariants}>
           <SpotlightCard
-            className="custom-spotlight-card  h-[170px] w-[130px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
+            className="custom-spotlight-card  sm:h-[170px] h-[150px] sm:w-[130px] w-[110px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 128 128"
-              width="100px"
-              height="100px"
+              className="sm:w-[100px] w-[90px] sm:h-[100px] h-[90px]"
               whileHover={{
                 translateY: -10,
               }}
