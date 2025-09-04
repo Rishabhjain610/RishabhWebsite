@@ -456,7 +456,7 @@ import SpotlightCard from "./SpotlightCard";
 import emailjs from "@emailjs/browser";
 import Spline from "@splinetool/react-spline";
 import "../App.css"; // Ensure you have the correct path to your CSS file
-
+import ContactUs2 from '../assets/ContactUs2.png'
 const Contact = () => {
   const buttonVariants = {
     hidden: {
@@ -577,8 +577,8 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="h-90 mb-8 rounded-xl overflow-hidden">
-            <Spline
+          <div className="h-90 mb-8 rounded-xl overflow-hidden flex justify-center items-center">
+            {/* <Spline
               scene="https://prod.spline.design/MtrAEZVLro1mhl7T/scene.splinecode"
               style={{
                 width: "100%",
@@ -586,12 +586,18 @@ const Contact = () => {
                 borderRadius: "12px",
                 
               }}
+            /> */}
+            <img
+              src={ContactUs2}
+              alt="Contact Illustration"
+              className="h-[300px] w-[500px]"
+              
             />
           </div>
 
           {/* Social Media Links */}
           <motion.div
-            className="grid grid-cols-3 gap-4 max-w-lg mx-auto"
+            className="grid grid-cols-3 gap-4 mx-auto items-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

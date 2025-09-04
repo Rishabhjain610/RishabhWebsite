@@ -83,6 +83,20 @@ const timelineData = [
       "Enhanced community engagement through activities.",
     ],
   },
+  {
+    id: 4,
+    title: "Tech SCOM",
+    organization: "GDG TSEC · Part-time",
+    duration: "Apr 2025 - Present · 3 mos",
+    location: "Mumbai, Maharashtra, India · Hybrid",
+    icon: "users",
+    points: [
+      "Managed technical aspects of student community.",
+      "Organized workshops and technical events.",
+      "Collaborated with other technical teams.",
+      "Enhanced community engagement through activities.",
+    ],
+  },
 ];
 
 const Timeline2 = () => {
