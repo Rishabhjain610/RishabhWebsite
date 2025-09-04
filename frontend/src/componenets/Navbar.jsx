@@ -95,7 +95,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="lg:hidden mr-6 flex items-center">
+      {/* <div className="lg:hidden mr-6 flex items-center">
         <button
           onClick={toggleMenu}
           className="text-white p-2 focus:outline-none"
@@ -118,6 +118,114 @@ const Navbar = () => {
           }}
         >
           <ul className="flex flex-col justify-evenly h-full w-full">
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#home"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaHome className="text-xl" />
+                <span className="text-lg">Home</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#about"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaUser className="text-xl" />
+                <span className="text-lg">About</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#skills"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaCode className="text-xl" />
+                <span className="text-lg">Skills</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#projects"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaLaptopCode className="text-xl" />
+                <span className="text-lg">Projects</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#work"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaBriefcase className="text-xl" />
+                <span className="text-lg">Work</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="#contact"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaEnvelope className="text-xl" />
+                <span className="text-lg">Contact</span>
+              </a>
+            </li>
+            <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
+              <a
+                href="https://drive.google.com/file/d/1DV-irLeae0jWaRLNNyeMvwzPm8aqvXoB/view?usp=sharing"
+                className="flex w-full items-center justify-center gap-3 hover:text-purple-500"
+                onClick={toggleMenu}
+              >
+                <FaFileAlt className="text-xl" />
+                <span className="text-lg">Resume</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      )} */}
+      <div className="lg:hidden mr-6 flex items-center">
+        <button
+          onClick={toggleMenu}
+          className="text-white p-2 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <div className={`relative w-8 h-8 flex flex-col justify-center items-center`} style={{left:"-20px"}}>
+            <span
+              className={`block absolute h-0.5 w-5 bg-white rounded transition-all duration-300
+                ${isOpen ? "rotate-45 top-4" : "top-2"}
+              `}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-5 bg-white rounded transition-all duration-300
+                ${isOpen ? "opacity-0" : "top-4"}
+              `}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-5 bg-white rounded transition-all duration-300
+                ${isOpen ? "-rotate-45 top-4" : "top-6"}
+              `}
+            ></span>
+          </div>
+        </button>
+      </div>
+
+      {isOpen && (
+        <div
+          className="lg:hidden fixed top-20 left-0 w-full h-[50vh]"
+          style={{
+            backdropFilter: "blur(200px)",
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+          }}
+        >
+           <ul className="flex flex-col justify-evenly h-full w-full">
             <li className="mobile-nav-item px-8 py-2 rounded-lg w-full">
               <a
                 href="#home"
