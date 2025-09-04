@@ -830,7 +830,7 @@ const Skills = () => {
             className="custom-spotlight-card  sm:h-[170px] h-[140px] sm:w-[130px] w-[100px] bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
-            <LuFramer className="sm:w-[100px] w-[70px] sm:h-[100px] h-[70px]" />
+            <LuFramer className="sm:w-[100px] w-[70px] sm:h-[100px] h-[70px] hover:-translate-y-1 transition-transform duration-300" />
             <h1 className="font1 sm:text-lg text-md">Motion</h1>
           </SpotlightCard>
         </motion.div>
@@ -839,7 +839,7 @@ const Skills = () => {
             className="custom-spotlight-card  sm:h-[170px] h-[140px] sm:w-[130px] w-[100px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
-            <IoLogoGithub className="sm:w-[100px] w-[80px] sm:h-[100px] h-[80px]" />
+            <IoLogoGithub className="sm:w-[100px] w-[80px] sm:h-[100px] h-[80px] transition-transform duration-300 hover:-translate-y-1" />
             <h1 className="font1 sm:text-lg text-md">GitHub</h1>
           </SpotlightCard>
         </motion.div>
@@ -885,7 +885,7 @@ const Skills = () => {
             className="custom-spotlight-card  sm:h-[170px] h-[140px] sm:w-[130px] w-[100px]  bg-transparent shadow-sm shadow-purple-500 flex items-center justify-center rounded-3xl flex-col"
             spotlightColor="rgba(139, 92, 246, 0.4)"
           >
-            <RiNextjsFill className="sm:w-[100px] w-[80px] sm:h-[100px] h-[80px]" />
+            <RiNextjsFill className="sm:w-[100px] w-[80px] sm:h-[100px] h-[80px] hover:-translate-y-1 transition-transform duration-300" />
             <h1 className="font1 sm:text-lg text-md">Next JS</h1>
           </SpotlightCard>
         </motion.div>
