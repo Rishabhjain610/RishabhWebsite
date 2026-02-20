@@ -17,6 +17,8 @@
     "@splinetool/react-spline": "^4.0.0",
     "@tailwindcss/vite": "^4.1.8",
     "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/interaction-external-pause": "^3.9.1",
+    "@tsparticles/move-parallax": "^3.9.1",
     "@tsparticles/plugin-easing-quad": "^3.9.1",
     "@tsparticles/shape-cards": "^3.9.1",
     "@tsparticles/shape-circle": "^3.9.1",
