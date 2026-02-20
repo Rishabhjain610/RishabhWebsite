@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
 
-import "../App.css";
+import "../index.css";
 
 import Timeline3 from "../componenets/TimeLine3";
 
@@ -36,10 +36,13 @@ const Experience = () => {
           transition={{ duration: 0.7, ease: "easeInOut" }}
         ></motion.h1>
       </div>
-      <div className="mt-7" style={{
-        marginTop: "40px",
-        paddingBottom: "40px"
-      }}>
+      <div
+        className="mt-7"
+        style={{
+          marginTop: "40px",
+          paddingBottom: "40px",
+        }}
+      >
         <Timeline3 />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "../App.css";
+import "../index.css";
 
 const Preloader = () => {
   const [isLoading1, setisLoading1] = useState(true);

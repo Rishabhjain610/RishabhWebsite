@@ -11,7 +11,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import LogoRj from "../assets/LogoRj.png";
-import "../App.css";
+import "../index.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

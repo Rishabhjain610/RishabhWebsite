@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import Timeline from "./Timeline";
-import "../App.css";
+import "../index.css";
 import SpotlightCard from "./SpotlightCard";
 const About = () => {
   const buttonHoverVariants = {
@@ -38,7 +38,6 @@ const About = () => {
           initial={{ width: 0 }}
           whileInView={{ width: "100px" }}
           transition={{ duration: 0.7, ease: "easeInOut" }}
-          
         />
       </div>
 

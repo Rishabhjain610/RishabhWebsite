@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./index.css";
 import Bg from "./componenets/Bg";
 import Preloader from "./componenets/Preloader";
 import Navbar from "./componenets/Navbar";

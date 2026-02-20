@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
 
-import "../App.css";
+import "../index.css";
 import SpotlightCard from "./SpotlightCard";
 import laptop1 from "../assets/laptop1.png";
 import { SiGithub } from "react-icons/si";

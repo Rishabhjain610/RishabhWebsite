@@ -5,7 +5,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { motion } from "framer-motion";
-import "../App.css";
+import "../index.css";
 
 const TimeLine3 = () => {
   return (
@@ -274,7 +274,6 @@ const TimeLine3 = () => {
             </li>
           </ul>
         </VerticalTimelineElement>
-
 
         <VerticalTimelineElement
           className="vertical-timeline-element--work"

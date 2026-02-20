@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 import { motion, AnimatePresence, stagger } from "framer-motion";
 
-import "../App.css";
+import "../index.css";
 import SpotlightCard from "./SpotlightCard";
 import { IoLogoGithub } from "react-icons/io";
 import { LuFramer } from "react-icons/lu";

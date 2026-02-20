@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
-import "../App.css";
+import "../index.css";
 import Hero3 from "../assets/Hero3.png";
 
 const Hero = () => {
@@ -80,7 +80,7 @@ const Hero = () => {
               ["@media (min-width: 1024px)"]: {
                 paddingLeft: "45px",
               },
-              padding: "10px 15px"
+              padding: "10px 15px",
             }}
           >
             <h2 className="text-3xl font-medium text-purple-400 mb-3">
