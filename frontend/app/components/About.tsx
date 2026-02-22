@@ -27,7 +27,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full px-6 md:px-12 lg:px-20 py-20 md:py-28 bg-[#F4F4F4] dark:bg-[#0e0e0e] text-[#1a1a1a] dark:text-[#e8e8e8] relative overflow-hidden"
+      className="w-full px-6 md:px-12 lg:px-20 py-20 md:py-28 bg-[#F4F4F4] dark:bg-[#121212] text-[#1a1a1a] dark:text-[#e8e8e8] relative overflow-hidden"
     >
       {/* subtle top divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4A90E2]/30 to-transparent" />

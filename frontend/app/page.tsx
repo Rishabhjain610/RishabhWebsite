@@ -31,7 +31,7 @@ const page = () => {
       <div id="achievements">
         <Achievements />
       </div>
-      <div id="Contact">
+      <div id="contact">
         <Contact />
       </div>
     </div>
