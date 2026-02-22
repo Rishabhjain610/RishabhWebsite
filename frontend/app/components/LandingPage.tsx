@@ -1,521 +1,810 @@
+
+// "use client";
+// import React, { useEffect, useState, useRef } from "react";
+// import { TypeAnimation } from "react-type-animation";
+// import {
+//   IoArrowForward,
+//   IoLogoGithub,
+//   IoLogoLinkedin,
+//   IoLogoInstagram,
+// } from "react-icons/io5";
+
+// /* ── terminal boot lines ── */
+// const bootLines = [
+//   { text: "$ npm run dev", color: "#6e7681", delay: 0 },
+//   { text: "> rishabh-portfolio@1.0.0 dev", color: "#c9d1d9", delay: 400 },
+//   { text: "> next dev --turbo", color: "#c9d1d9", delay: 700 },
+//   { text: "", color: "", delay: 900 },
+//   { text: "▲ Next.js 16.1.6 (Turbopack)", color: "#4A90E2", delay: 1100 },
+//   { text: "  - Local: http://localhost:3000", color: "#c9d1d9", delay: 1400 },
+//   { text: "", color: "", delay: 1600 },
+//   { text: "✓ Starting...", color: "#3fb950", delay: 1800 },
+//   { text: "✓ Ready in 823ms", color: "#3fb950", delay: 2200 },
+//   { text: "", color: "", delay: 2400 },
+//   { text: "  Compiling pages...", color: "#6e7681", delay: 2600 },
+//   { text: "    ✓ / (LandingPage)", color: "#3fb950", delay: 2900 },
+//   { text: "    ✓ /about", color: "#3fb950", delay: 3100 },
+//   { text: "    ✓ /skills", color: "#3fb950", delay: 3300 },
+//   { text: "    ✓ /projects", color: "#3fb950", delay: 3500 },
+//   { text: "    ✓ /work", color: "#3fb950", delay: 3700 },
+//   { text: "    ✓ /contact", color: "#3fb950", delay: 3900 },
+//   { text: "", color: "", delay: 4100 },
+//   { text: "✔ All systems go 🚀", color: "#4A90E2", delay: 4300 },
+//   { text: "", color: "", delay: 4500 },
+//   {
+//     text: "Type 'help' for available commands.",
+//     color: "#6e7681",
+//     delay: 4700,
+//   },
+// ];
+
+// /* ── commands the visitor can type ── */
+// const commands: Record<string, { output: string[]; navigate?: string }> = {
+//   help: {
+//     output: [
+//       "Available commands:",
+//       "",
+//       "  about        → jump to About section",
+//       "  skills       → jump to Skills section",
+//       "  projects     → jump to Projects section",
+//       "  work         → jump to Work section",
+//       "  stats        → jump to Stats section",
+//       "  achievements → jump to Achievements section",
+//       "  contact      → jump to Contact section",
+//       "  resume       → open resume (PDF)",
+//       "  github       → open GitHub profile",
+//       "  linkedin     → open LinkedIn profile",
+//       "  clear        → clear terminal",
+//       "  help         → show this message",
+//     ],
+//   },
+//   about: {
+//     output: ["Navigating to About..."],
+//     navigate: "#about",
+//   },
+//   skills: {
+//     output: ["Navigating to Skills..."],
+//     navigate: "#skills",
+//   },
+//   projects: {
+//     output: ["Navigating to Projects..."],
+//     navigate: "#projects",
+//   },
+//   work: {
+//     output: ["Navigating to Work..."],
+//     navigate: "#work",
+//   },
+//   stats: {
+//     output: ["Navigating to Stats..."],
+//     navigate: "#stats",
+//   },
+//   achievements: {
+//     output: ["Navigating to Achievements..."],
+//     navigate: "#achievements",
+//   },
+//   contact: {
+//     output: ["Navigating to Contact..."],
+//     navigate: "#contact",
+//   },
+//   resume: {
+//     output: ["Opening resume..."],
+//     navigate: "/resume.pdf",
+//   },
+//   github: {
+//     output: ["Opening GitHub..."],
+//     navigate: "https://github.com/Rishabhjain610",
+//   },
+//   linkedin: {
+//     output: ["Opening LinkedIn..."],
+//     navigate: "https://linkedin.com/in/rishabhjain610",
+//   },
+// };
+
+// /* ── single rendered line type ── */
+// interface TermLine {
+//   text: string;
+//   color: string;
+//   isInput?: boolean;
+// }
+
+// const LandingPage = () => {
+//   /* boot animation */
+//   const [visibleBoot, setVisibleBoot] = useState<number[]>([]);
+//   const [bootDone, setBootDone] = useState(false);
+
+//   /* interactive shell */
+//   const [history, setHistory] = useState<TermLine[]>([]);
+//   const [input, setInput] = useState("");
+//   const inputRef = useRef<HTMLInputElement>(null);
+//   const bodyRef = useRef<HTMLDivElement>(null);
+
+//   /* boot sequence */
+//   useEffect(() => {
+//     bootLines.forEach((line, i) => {
+//       setTimeout(() => {
+//         setVisibleBoot((prev) => [...prev, i]);
+//         if (i === bootLines.length - 1) {
+//           setTimeout(() => setBootDone(true), 300);
+//         }
+//       }, line.delay);
+//     });
+//   }, []);
+
+//   /* auto‑scroll terminal body */
+//   useEffect(() => {
+//     if (bodyRef.current) {
+//       bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+//     }
+//   }, [visibleBoot, history]);
+
+//   /* focus input when terminal is clicked */
+//   const focusInput = () => inputRef.current?.focus();
+
+//   /* handle command */
+//   const run = (raw: string) => {
+//     const cmd = raw.trim().toLowerCase();
+//     if (!cmd) return;
+
+//     const echo: TermLine = {
+//       text: `$ ${raw}`,
+//       color: "#6e7681",
+//       isInput: true,
+//     };
+
+//     if (cmd === "clear") {
+//       setHistory([]);
+//       setInput("");
+//       return;
+//     }
+
+//     const match = commands[cmd];
+
+//     if (match) {
+//       const outputLines: TermLine[] = match.output.map((t) => ({
+//         text: t,
+//         color: cmd === "help" ? "#c9d1d9" : "#3fb950",
+//       }));
+//       setHistory((prev) => [...prev, echo, ...outputLines]);
+
+//       if (match.navigate) {
+//         setTimeout(() => {
+//           if (match.navigate!.startsWith("http")) {
+//             window.open(match.navigate!, "_blank");
+//           } else {
+//             const el = document.querySelector(match.navigate!);
+//             if (el) el.scrollIntoView({ behavior: "smooth" });
+//           }
+//         }, 400);
+//       }
+//     } else {
+//       setHistory((prev) => [
+//         ...prev,
+//         echo,
+//         {
+//           text: `command not found: ${cmd}. Type 'help' for available commands.`,
+//           color: "#f85149",
+//         },
+//       ]);
+//     }
+
+//     setInput("");
+//   };
+
+//   return (
+//     <section
+//       id="hero"
+//       className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center
+//                  gap-8 lg:gap-16 py-32 px-6 md:px-12 lg:px-20 lg:py-28
+//                  bg-[#F4F4F4] dark:bg-[#121212] relative overflow-hidden"
+//     >
+//       {/* ── background glow ── */}
+//       <div
+//         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+//         style={{ background: "rgba(74,144,226,0.06)" }}
+//       />
+//       <div
+//         className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+//         style={{ background: "rgba(74,144,226,0.04)" }}
+//       />
+
+//       {/* ═══════════ LEFT ═══════════ */}
+
+//       <div className="flex-1 max-w-xl space-y-5 relative z-10">
+//         <span
+//           className="inline-block text-sm font-semibold px-4 py-2 rounded-full font-spaceGrotesk
+//                    bg-blue-500/10 text-[#4A90E2]"
+//         >
+//           👋 Hello, I'm
+//         </span>
+
+//         <h1
+//           className="text-5xl lg:text-6xl font-bold 
+//                  text-[#2E2E2E] dark:text-[#E0E0E0] font-spaceGrotesk"
+//         >
+//           Rishabh{" "}
+//           <span className="text-[#4A90E2] drop-shadow-[0_0_40px_rgba(74,144,226,0.35)]">
+//             Jain
+//           </span>
+//         </h1>
+
+//         <div className="h-8 text-2xl md:text-3xl font-semibold font-spaceGrotesk text-[#4A90E2]">
+//           <TypeAnimation
+//             sequence={[
+//               "Full Stack Developer",
+//               2000,
+//               "Frontend Developer",
+//               2000,
+//               "Backend Developer",
+//               2000,
+//               "Software Engineer",
+//               2000,
+//             ]}
+//             speed={50}
+//             repeat={Infinity}
+//           />
+//         </div>
+
+//         <p
+//           className="text-lg md:text-xl  font-spaceGrotesk
+//                 text-[#2E2E2E] dark:text-[#E0E0E0] opacity-80"
+//         >
+//           I'm a Tech enthusiast who builds websites and web applications that
+//           offer great user experiences. I enjoy writing clean code and solving
+//           problems creatively.
+//         </p>
+
+//         <div className="flex flex-col sm:flex-row gap-4 pt-4">
+//           <a
+//             href="#contact"
+//             className="group relative flex items-center justify-center gap-2
+//                  px-8 py-4 rounded-xl font-semibold text-white font-spaceGrotesk
+//                  bg-gradient-to-br from-[#4A90E2] to-[#357ABD]
+//                  shadow-lg shadow-blue-500/40
+//                  hover:shadow-xl hover:shadow-blue-500/50
+//                  transition-all duration-300"
+//           >
+//             Contact Me
+//             <IoArrowForward size={18} />
+//           </a>
+
+//           <a
+//             href="#projects"
+//             className="flex items-center justify-center gap-2
+//                  px-8 py-4 rounded-xl font-semibold font-spaceGrotesk
+//                  border-2 border-[#4A90E2] text-[#4A90E2]
+//                  hover:bg-blue-500/10
+//                  hover:shadow-lg hover:shadow-blue-500/30
+//                  transition-all duration-300"
+//           >
+//             View Projects
+//           </a>
+//         </div>
+
+//         <div className="flex gap-4 pt-4">
+//           {[
+//             {
+//               icon: IoLogoGithub,
+//               href: "https://github.com/Rishabhjain610",
+//             },
+//             {
+//               icon: IoLogoLinkedin,
+//               href: "https://linkedin.com/in/rishabhjain610",
+//             },
+//             {
+//               icon: IoLogoInstagram,
+//               href: "https://instagram.com/rishabh_jain610",
+//             },
+//           ].map((s, i) => (
+//             <a
+//               key={i}
+//               href={s.href}
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="p-3 rounded-full
+//                    bg-blue-500/10
+//                    border border-blue-500/30
+//                    hover:bg-blue-500/20
+//                    hover:border-[#4A90E2]
+//                    hover:-translate-y-1
+//                    hover:scale-110
+//                    hover:shadow-lg hover:shadow-blue-500/30
+//                    transition-all duration-300"
+//             >
+//               <s.icon
+//                 size={22}
+//                 className="text-[#2E2E2E] dark:text-[#E0E0E0]"
+//               />
+//             </a>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* ═══════════ RIGHT – INTERACTIVE TERMINAL ═══════════ */}
+//       <div
+//         className="w-full max-w-xl rounded-2xl overflow-hidden font-mono text-sm select-text mt-8 lg:mt-0 lg:flex-1"
+//         style={{
+//           backgroundColor: "#0d1117",
+//           border: "1px solid rgba(74,144,226,0.25)",
+//           boxShadow:
+//             "0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(74,144,226,0.08)",
+//         }}
+//         onClick={focusInput}
+//       >
+//         {/* ── title bar ── */}
+//         <div
+//           className="flex items-center gap-2 px-5 py-3.5 border-b select-none"
+//           style={{
+//             backgroundColor: "#161b22",
+//             borderColor: "rgba(74,144,226,0.15)",
+//           }}
+//         >
+//           <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+//           <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+//           <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+
+//           <span
+//             className="mx-auto text-xs font-spaceGrotesk tracking-wide"
+//             style={{ color: "#6e7681" }}
+//           >
+//             rishabh@portfolio ~ zsh
+//           </span>
+
+//           {/* live dot */}
+//           <span
+//             className="flex items-center gap-1.5 text-xs"
+//             style={{ color: "#3fb950" }}
+//           >
+//             <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse" />
+//             live
+//           </span>
+//         </div>
+
+//         {/* ── body (scrollable, scrollbar hidden) ── */}
+//         <div
+//           ref={bodyRef}
+//           className="p-5 space-y-0.5 overflow-y-auto no-scrollbar"
+//           style={{ maxHeight: "420px", minHeight: "180px" }}
+//         >
+//           {/* boot lines */}
+//           {bootLines.map((line, i) =>
+//             visibleBoot.includes(i) ? (
+//               <p
+//                 key={`boot-${i}`}
+//                 className="text-[13px] leading-relaxed whitespace-pre"
+//                 style={{ color: line.color || "transparent" }}
+//               >
+//                 {line.text || "\u00A0"}
+//               </p>
+//             ) : null,
+//           )}
+
+//           {/* history (user commands + output) */}
+//           {history.map((line, i) => (
+//             <p
+//               key={`hist-${i}`}
+//               className="text-[13px] leading-relaxed whitespace-pre"
+//               style={{ color: line.color }}
+//             >
+//               {line.text || "\u00A0"}
+//             </p>
+//           ))}
+
+//           {/* input line */}
+//           {bootDone && (
+//             <div className="flex items-center gap-2 pt-1">
+//               <span style={{ color: "#4A90E2" }} className="text-[13px]">
+//                 $
+//               </span>
+//               <input
+//                 ref={inputRef}
+//                 value={input}
+//                 onChange={(e) => setInput(e.target.value)}
+//                 onKeyDown={(e) => {
+//                   if (e.key === "Enter") run(input);
+//                 }}
+//                 spellCheck={false}
+//                 autoComplete="off"
+//                 className="flex-1 bg-transparent outline-none caret-[#4A90E2] text-[13px]"
+//                 style={{ color: "#c9d1d9" }}
+//                 placeholder="type a command..."
+//               />
+//             </div>
+//           )}
+//         </div>
+
+//         {/* ── status bar ── */}
+//         <div
+//           className="flex items-center justify-between px-5 py-2.5 border-t text-[11px] select-none"
+//           style={{
+//             backgroundColor: "#161b22",
+//             borderColor: "rgba(74,144,226,0.15)",
+//             color: "#6e7681",
+//           }}
+//         >
+//           <span>
+//             <span style={{ color: "#3fb950" }}>●</span> interactive
+//           </span>
+//           <span className="font-spaceGrotesk">
+//             type <span style={{ color: "#4A90E2" }}>help</span> to get started
+//           </span>
+//           <span>zsh</span>
+//         </div>
+//         {/* Hide scrollbar but keep scrollability */}
+//         <style>{`
+//           .no-scrollbar {
+//             scrollbar-width: none;
+//             -ms-overflow-style: none;
+//           }
+//           .no-scrollbar::-webkit-scrollbar {
+//             display: none;
+//           }
+//         `}</style>
+//       </div>
+
+//       {/* ── scroll indicator ── */}
+//       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+//         <div
+//           className="w-6 h-10 rounded-full border-2 flex justify-center"
+//           style={{ borderColor: "#4A90E2" }}
+//         >
+//           <span
+//             className="w-1 h-3 rounded-full mt-2 animate-bounce"
+//             style={{ backgroundColor: "#4A90E2" }}
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default LandingPage;
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { IoArrowForward, IoLogoGithub, IoLogoLinkedin, IoLogoInstagram } from "react-icons/io5";
+import React, { useEffect, useState, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
+import {
+  IoArrowForward,
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoLogoInstagram,
+} from "react-icons/io5";
 
-export default function Home() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+const bootLines = [
+  { text: "$ npm run dev", color: "#6e7681", delay: 0 },
+  { text: "> rishabh-portfolio@1.0.0 dev", color: "#c9d1d9", delay: 400 },
+  { text: "> next dev --turbo", color: "#c9d1d9", delay: 700 },
+  { text: "", color: "", delay: 900 },
+  { text: "▲ Next.js 16.1.6 (Turbopack)", color: "#4A90E2", delay: 1100 },
+  { text: "  - Local: http://localhost:3000", color: "#c9d1d9", delay: 1400 },
+  { text: "", color: "", delay: 1600 },
+  { text: "✓ Starting...", color: "#3fb950", delay: 1800 },
+  { text: "✓ Ready in 823ms", color: "#3fb950", delay: 2200 },
+  { text: "", color: "", delay: 2400 },
+  { text: "  Compiling pages...", color: "#6e7681", delay: 2600 },
+  { text: "    ✓ / (LandingPage)", color: "#3fb950", delay: 2900 },
+  { text: "    ✓ /about", color: "#3fb950", delay: 3100 },
+  { text: "    ✓ /skills", color: "#3fb950", delay: 3300 },
+  { text: "    ✓ /projects", color: "#3fb950", delay: 3500 },
+  { text: "    ✓ /work", color: "#3fb950", delay: 3700 },
+  { text: "    ✓ /contact", color: "#3fb950", delay: 3900 },
+  { text: "", color: "", delay: 4100 },
+  { text: "✔ All systems go 🚀", color: "#4A90E2", delay: 4300 },
+  { text: "", color: "", delay: 4500 },
+  { text: "Type 'help' for available commands.", color: "#6e7681", delay: 4700 },
+];
 
-  React.useEffect(() => {
-    setMounted(true);
+const commands: Record<string, { output: string[]; navigate?: string }> = {
+  help: {
+    output: [
+      "Available commands:",
+      "",
+      "  about        → jump to About section",
+      "  skills       → jump to Skills section",
+      "  projects     → jump to Projects section",
+      "  work         → jump to Work section",
+      "  stats        → jump to Stats section",
+      "  achievements → jump to Achievements section",
+      "  contact      → jump to Contact section",
+      "  resume       → open resume (PDF)",
+      "  github       → open GitHub profile",
+      "  linkedin     → open LinkedIn profile",
+      "  clear        → clear terminal",
+      "  help         → show this message",
+    ],
+  },
+  about: { output: ["Navigating to About..."], navigate: "#about" },
+  skills: { output: ["Navigating to Skills..."], navigate: "#skills" },
+  projects: { output: ["Navigating to Projects..."], navigate: "#projects" },
+  work: { output: ["Navigating to Work..."], navigate: "#work" },
+  stats: { output: ["Navigating to Stats..."], navigate: "#stats" },
+  achievements: { output: ["Navigating to Achievements..."], navigate: "#achievements" },
+  contact: { output: ["Navigating to Contact..."], navigate: "#contact" },
+  resume: { output: ["Opening resume..."], navigate: "/resume.pdf" },
+  github: { output: ["Opening GitHub..."], navigate: "https://github.com/Rishabhjain610" },
+  linkedin: { output: ["Opening LinkedIn..."], navigate: "https://linkedin.com/in/rishabhjain610" },
+};
+
+interface TermLine {
+  text: string;
+  color: string;
+  isInput?: boolean;
+}
+
+const LandingPage = () => {
+  const [visibleBoot, setVisibleBoot] = useState<number[]>([]);
+  const [bootDone, setBootDone] = useState(false);
+  const [history, setHistory] = useState<TermLine[]>([]);
+  const [input, setInput] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bootLines.forEach((line, i) => {
+      setTimeout(() => {
+        setVisibleBoot((prev) => [...prev, i]);
+        if (i === bootLines.length - 1) setTimeout(() => setBootDone(true), 300);
+      }, line.delay);
+    });
   }, []);
 
-  if (!mounted) return null;
+  useEffect(() => {
+    if (bodyRef.current)
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+  }, [visibleBoot, history]);
 
-  const isDark = theme === "dark";
-  const bgColor = isDark ? "#121212" : "#F4F4F4";
-  const textColor = isDark ? "#E0E0E0" : "#2E2E2E";
-  const accentColor = "#4A90E2";
-  const secondaryBg = isDark ? "#1a1a1a" : "#ffffff";
-  const secondaryTextColor = isDark ? "#B0B0B0" : "#5A5A5A";
-  const cardBg = isDark ? "rgba(26, 26, 26, 0.5)" : "rgba(255, 255, 255, 0.5)";
+  const focusInput = () => inputRef.current?.focus();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 15,
-      },
-    },
-  };
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const run = (raw: string) => {
+    const cmd = raw.trim().toLowerCase();
+    if (!cmd) return;
+    const echo: TermLine = { text: `$ ${raw}`, color: "#6e7681", isInput: true };
+    if (cmd === "clear") { setHistory([]); setInput(""); return; }
+    const match = commands[cmd];
+    if (match) {
+      const out: TermLine[] = match.output.map((t) => ({
+        text: t,
+        color: cmd === "help" ? "#c9d1d9" : "#3fb950",
+      }));
+      setHistory((prev) => [...prev, echo, ...out]);
+      if (match.navigate) {
+        setTimeout(() => {
+          if (match.navigate!.startsWith("http")) window.open(match.navigate!, "_blank");
+          else document.querySelector(match.navigate!)?.scrollIntoView({ behavior: "smooth" });
+        }, 400);
+      }
+    } else {
+      setHistory((prev) => [
+        ...prev,
+        echo,
+        { text: `command not found: ${cmd}. Type 'help' for available commands.`, color: "#f85149" },
+      ]);
     }
+    setInput("");
   };
 
   return (
-    <div style={{ backgroundColor: bgColor, color: textColor, minHeight: "100vh" }}>
-      {/* Hero Section */}
-      <section
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden pt-20"
-        style={{ backgroundColor: bgColor }}
-      >
-        {/* Animated Background Elements */}
-        <motion.div
-          className="absolute top-32 left-20 w-80 h-80 opacity-5 rounded-full"
-          style={{ background: accentColor }}
-          animate={{
-            y: [0, 50, 0],
-            x: [0, 30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-32 right-20 w-96 h-96 opacity-5 rounded-full"
-          style={{ background: accentColor }}
-          animate={{
-            y: [0, -50, 0],
-            x: [0, -30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+    <section
+      id="hero"
+      className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-6 md:px-12 lg:px-20 py-36 bg-[#F4F4F4] dark:bg-[#121212] relative overflow-hidden"
+    >
+      {/* bg glows */}
+    
+      {/* <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(74,144,226,0.07)" }} />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style={{ background: "rgba(74,144,226,0.04)" }} /> */}
 
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10 relative">
-          {/* Left Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-8"
+      {/* ═══ LEFT ═══ */}
+      <div className="flex-1 max-w-lg w-full space-y-4 relative z-10 text-center lg:text-left">
+
+        {/* greeting */}
+        <div>
+          <span
+            className="inline-block text-md font-bold px-3 py-1.5 rounded-full font-spaceGrotesk "
+            style={{ backgroundColor: "rgba(74,144,226,0.12)", color: "#4A90E2" }}
           >
-            <motion.div variants={itemVariants} className="space-y-4">
-              <motion.span
-                className="inline-block text-sm font-semibold"
-                style={{ color: accentColor }}
-              >
-                👋 Hello, I'm
-              </motion.span>
-              <h1
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
-                style={{ color: textColor }}
-              >
-                Rishabh <span style={{ color: accentColor }}>Jain</span>
-              </h1>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="space-y-3">
-              <h2 className="text-2xl sm:text-3xl font-semibold" style={{ color: secondaryTextColor }}>
-                From India
-              </h2>
-              <p
-                className="text-lg leading-relaxed max-w-xl"
-                style={{ color: secondaryTextColor }}
-              >
-                I'm a Tech enthusiast who builds websites and web applications that offer great user
-                experiences. I enjoy writing clean code and solving problems creatively.
-              </p>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-            >
-              <motion.button
-                onClick={() => scrollToSection("contact")}
-                className="px-8 py-4 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-all duration-300"
-                style={{
-                  backgroundColor: accentColor,
-                  boxShadow: `0 6px 20px ${accentColor}40`,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: `0 10px 30px ${accentColor}60`,
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Me
-                <IoArrowForward size={18} />
-              </motion.button>
-
-              <motion.button
-                onClick={() => scrollToSection("projects")}
-                className="px-8 py-4 rounded-lg font-semibold border-2 transition-all duration-300"
-                style={{
-                  borderColor: accentColor,
-                  color: accentColor,
-                  backgroundColor: "transparent",
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: `${accentColor}10`,
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Projects
-              </motion.button>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              variants={itemVariants}
-              className="flex gap-6 pt-4"
-            >
-              {[
-                { icon: IoLogoGithub, href: "https://github.com/Rishabhjain610" },
-                { icon: IoLogoLinkedin, href: "https://linkedin.com/in/rishabhjain610" },
-                { icon: IoLogoInstagram, href: "https://instagram.com/rishabh_jain610" },
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full transition-all duration-300"
-                  style={{
-                    backgroundColor: `${accentColor}15`,
-                    color: accentColor,
-                  }}
-                  whileHover={{
-                    scale: 1.1,
-                    backgroundColor: `${accentColor}25`,
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <social.icon size={24} />
-                </motion.a>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right Side - Illustration Placeholder */}
-          <motion.div
-            className="hidden lg:flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <motion.div
-              className="relative w-80 h-80 rounded-2xl flex items-center justify-center text-7xl"
-              style={{
-                backgroundColor: `${accentColor}15`,
-                border: `2px solid ${accentColor}30`,
-              }}
-              animate={{
-                y: [0, 30, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              💻
-            </motion.div>
-          </motion.div>
+            👋 Hello, I'm
+          </span>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div
-            className="w-6 h-10 border-2 rounded-full flex justify-center"
-            style={{ borderColor: accentColor }}
-          >
-            <motion.div
-              className="w-1 h-2 bg-current rounded-full mt-2"
-              style={{ color: accentColor }}
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+        {/* name */}
+        <h1 className="text-5xl lg:text-6xl font-bold  text-[#2E2E2E] dark:text-[#E0E0E0]">
+          Rishabh{" "}
+          <span style={{ color: "#4A90E2", textShadow: "0 0 30px rgba(74,144,226,0.3)" }}>
+            Jain
+          </span>
+        </h1>
+
+        {/* typewriter */}
+        <div className="h-8 flex items-center justify-center lg:justify-start">
+          <span className="text-2xl md:text-4xl font-semibold font-spaceGrotesk" style={{ color: "#4A90E2" }}>
+            <TypeAnimation
+              sequence={[
+                "Full Stack Developer", 2000,
+                "Frontend Developer", 2000,
+                "Backend Developer", 2000,
+                "Software Engineer", 2000,
+              ]}
+              speed={50}
+              repeat={Infinity}
+              cursor
             />
-          </div>
-        </motion.div>
-      </section>
+          </span>
+        </div>
 
-      {/* About Section */}
-      <section
-        id="about"
-        className="py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: secondaryBg }}
-      >
-        <motion.div
-          className="max-w-6xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-12"
-            style={{ color: textColor }}
-          >
-            About <span style={{ color: accentColor }}>Me</span>
-          </motion.h2>
+        {/* thin accent line */}
+        <div className="flex justify-center lg:justify-start">
+          <div className="h-[2px] w-14 rounded-full" style={{ backgroundColor: "#4A90E2", opacity: 0.45 }} />
+        </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
-          >
-            <div
-              className="p-8 rounded-xl"
-              style={{
-                backgroundColor: cardBg,
-                border: `1px solid ${isDark ? "rgba(224, 224, 224, 0.1)" : "rgba(46, 46, 46, 0.1)"}`,
-              }}
-            >
-              <h3
-                className="text-2xl font-bold mb-4"
-                style={{ color: textColor }}
-              >
-                Who I Am
-              </h3>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: secondaryTextColor }}
-              >
-                A passionate full-stack developer from India with a keen interest in building modern web
-                applications. I love working with React, Next.js, and other cutting-edge technologies to
-                create seamless user experiences.
-              </p>
-            </div>
+        {/* bio */}
+        <p className="mx-auto lg:mx-0 max-w-md text-[0.95rem] lg:text-lg  font-spaceGrotesk text-[#2E2E2E] dark:text-[#E0E0E0] opacity-80">
+          I'm a Tech enthusiast who builds websites and web applications that offer great user experiences. I enjoy writing clean code and solving problems creatively.
+        </p>
 
-            <div
-              className="p-8 rounded-xl"
-              style={{
-                backgroundColor: cardBg,
-                border: `1px solid ${isDark ? "rgba(224, 224, 224, 0.1)" : "rgba(46, 46, 46, 0.1)"}`,
-              }}
-            >
-              <h3
-                className="text-2xl font-bold mb-4"
-                style={{ color: textColor }}
-              >
-                What I Do
-              </h3>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: secondaryTextColor }}
-              >
-                When I'm not coding, you'll find me contributing to open source, learning new technologies,
-                or sharing knowledge with the developer community. I believe in continuous learning and
-                growth.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Skills Section */}
-      <section
-        id="skills"
-        className="py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: bgColor }}
-      >
-        <motion.div
-          className="max-w-6xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-12"
-            style={{ color: textColor }}
-          >
-            Skills & <span style={{ color: accentColor }}>Technologies</span>
-          </motion.h2>
-
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-            variants={containerVariants}
-          >
-            {[
-              "React",
-              "Next.js",
-              "TypeScript",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "PostgreSQL",
-              "Tailwind CSS",
-              "JavaScript",
-              "Python",
-              "Git",
-              "Docker",
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                variants={itemVariants}
-                className="p-6 rounded-lg text-center font-semibold transition-all duration-300"
-                style={{
-                  backgroundColor: `${accentColor}15`,
-                  color: accentColor,
-                  border: `1px solid ${accentColor}30`,
-                }}
-                whileHover={{
-                  scale: 1.08,
-                  backgroundColor: `${accentColor}25`,
-                  boxShadow: `0 8px 20px ${accentColor}30`,
-                }}
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: secondaryBg }}
-      >
-        <motion.div
-          className="max-w-6xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-12"
-            style={{ color: textColor }}
-          >
-            Featured <span style={{ color: accentColor }}>Projects</span>
-          </motion.h2>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
-          >
-            {[
-              { title: "Project One", desc: "A modern web application with React and Node.js" },
-              { title: "Project Two", desc: "Full-stack application with PostgreSQL and Express" },
-              { title: "Project Three", desc: "Real-time chat application with Socket.io" },
-            ].map((project, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="rounded-xl overflow-hidden transition-all duration-300"
-                style={{
-                  backgroundColor: cardBg,
-                  border: `1px solid ${isDark ? "rgba(224, 224, 224, 0.1)" : "rgba(46, 46, 46, 0.1)"}`,
-                }}
-                whileHover={{
-                  y: -8,
-                  boxShadow: `0 12px 30px ${accentColor}20`,
-                }}
-              >
-                <div
-                  className="h-48 flex items-center justify-center text-5xl"
-                  style={{
-                    backgroundColor: `${accentColor}15`,
-                  }}
-                >
-                  ✨
-                </div>
-                <div className="p-6">
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: textColor }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p
-                    className="text-sm mb-4"
-                    style={{ color: secondaryTextColor }}
-                  >
-                    {project.desc}
-                  </p>
-                  <motion.a
-                    href="#"
-                    className="inline-flex items-center gap-2 font-semibold transition-all duration-300"
-                    style={{ color: accentColor }}
-                    whileHover={{ gap: "8px" }}
-                  >
-                    View Project
-                    <IoArrowForward size={16} />
-                  </motion.a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Contact Section */}
-      <section
-        id="contact"
-        className="py-24 px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: bgColor }}
-      >
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-6"
-            style={{ color: textColor }}
-          >
-            Let's Work <span style={{ color: accentColor }}>Together</span>
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-lg mb-10"
-            style={{ color: secondaryTextColor }}
-          >
-            Have a project in mind or want to collaborate? I'd love to hear from you!
-          </motion.p>
-
-          <motion.button
-            variants={itemVariants}
-            className="px-10 py-4 rounded-lg font-semibold text-white transition-all duration-300"
+        {/* buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-1">
+          <a
+            href="#contact"
+            className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-white font-spaceGrotesk overflow-hidden transition-all duration-300"
             style={{
-              backgroundColor: accentColor,
-              boxShadow: `0 6px 20px ${accentColor}40`,
+              background: "linear-gradient(135deg, #4A90E2 0%, #357abd 100%)",
+              boxShadow: "0 6px 20px rgba(74,144,226,0.35)",
             }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: `0 10px 30px ${accentColor}60`,
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 28px rgba(74,144,226,0.5)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
             }}
-            whileTap={{ scale: 0.95 }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(74,144,226,0.35)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+            }}
           >
-            Send Me an Email
-          </motion.button>
-        </motion.div>
-      </section>
+            Contact Me
+            <IoArrowForward size={15} />
+          </a>
 
-      {/* Footer */}
-      <footer
-        className="py-8 px-4 sm:px-6 lg:px-8 border-t text-center"
+          <a
+            href="#projects"
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm font-spaceGrotesk border-2 border-[#4A90E2] text-[#4A90E2] transition-all duration-300"
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(74,144,226,0.08)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(74,144,226,0.2)";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "transparent";
+              (e.currentTarget as HTMLElement).style.boxShadow = "none";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+            }}
+          >
+            View Projects
+          </a>
+        </div>
+
+        {/* socials */}
+        <div className="flex gap-3 justify-center lg:justify-start pt-1">
+          {[
+            { icon: IoLogoGithub, href: "https://github.com/Rishabhjain610", label: "GitHub" },
+            { icon: IoLogoLinkedin, href: "https://linkedin.com/in/rishabhjain610", label: "LinkedIn" },
+            { icon: IoLogoInstagram, href: "https://instagram.com/rishabh_jain610", label: "Instagram" },
+          ].map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={s.label}
+              className="p-2.5 rounded-full transition-all duration-300"
+              style={{ backgroundColor: "rgba(74,144,226,0.08)", border: "1px solid rgba(74,144,226,0.2)" }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.backgroundColor = "rgba(74,144,226,0.18)";
+                el.style.borderColor = "#4A90E2";
+                el.style.transform = "translateY(-2px) scale(1.1)";
+                el.style.boxShadow = "0 6px 16px rgba(74,144,226,0.25)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.backgroundColor = "rgba(74,144,226,0.08)";
+                el.style.borderColor = "rgba(74,144,226,0.2)";
+                el.style.transform = "translateY(0) scale(1)";
+                el.style.boxShadow = "none";
+              }}
+            >
+              <s.icon size={18} className="text-[#2E2E2E] dark:text-[#E0E0E0]" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* ═══ RIGHT – TERMINAL ═══ */}
+      <div
+        className="w-full max-w-xl lg:flex-1 relative z-10 mt-8 lg:mt-0 rounded-2xl overflow-hidden font-mono text-sm select-text"
         style={{
-          borderColor: isDark ? "rgba(224, 224, 224, 0.1)" : "rgba(46, 46, 46, 0.1)",
-          backgroundColor: secondaryBg,
-          color: secondaryTextColor,
+          backgroundColor: "#0d1117",
+          border: "1px solid rgba(74,144,226,0.25)",
+          boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(74,144,226,0.08)",
+          /* fix: pre-allocate full height so terminal never grows */
+          height: "460px",
+          display: "flex",
+          flexDirection: "column",
         }}
+        onClick={focusInput}
       >
-        <p>© 2024 Rishabh Jain. All rights reserved.</p>
-      </footer>
-    </div>
+        {/* title bar */}
+        <div
+          className="flex items-center gap-2 px-5 py-3.5 border-b select-none flex-shrink-0"
+          style={{ backgroundColor: "#161b22", borderColor: "rgba(74,144,226,0.15)" }}
+        >
+          <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+          <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+          <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+          <span className="mx-auto text-xs font-spaceGrotesk tracking-wide" style={{ color: "#6e7681" }}>
+            rishabh@portfolio ~ zsh
+          </span>
+          <span className="flex items-center gap-1.5 text-xs" style={{ color: "#3fb950" }}>
+            <span className="w-2 h-2 rounded-full bg-[#3fb950] animate-pulse" />
+            live
+          </span>
+        </div>
+
+        {/* body — flex-1 so it fills the allocated height, never grows parent */}
+        <div
+          ref={bodyRef}
+          className="p-5 space-y-0.5 overflow-y-auto no-scrollbar flex-1"
+        >
+          {bootLines.map((line, i) =>
+            visibleBoot.includes(i) ? (
+              <p key={`boot-${i}`} className="text-[13px] leading-relaxed whitespace-pre" style={{ color: line.color || "transparent" }}>
+                {line.text || "\u00A0"}
+              </p>
+            ) : null
+          )}
+          {history.map((line, i) => (
+            <p key={`hist-${i}`} className="text-[13px] leading-relaxed whitespace-pre" style={{ color: line.color }}>
+              {line.text || "\u00A0"}
+            </p>
+          ))}
+          {bootDone && (
+            <div className="flex items-center gap-2 pt-1">
+              <span style={{ color: "#4A90E2" }} className="text-[13px]">$</span>
+              <input
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") run(input); }}
+                spellCheck={false}
+                autoComplete="off"
+                className="flex-1 bg-transparent outline-none caret-[#4A90E2] text-[13px]"
+                style={{ color: "#c9d1d9" }}
+                placeholder="type a command..."
+              />
+            </div>
+          )}
+        </div>
+
+        {/* status bar */}
+        <div
+          className="flex items-center justify-between px-5 py-2.5 border-t text-[11px] select-none flex-shrink-0"
+          style={{ backgroundColor: "#161b22", borderColor: "rgba(74,144,226,0.15)", color: "#6e7681" }}
+        >
+          <span><span style={{ color: "#3fb950" }}>●</span> interactive</span>
+          <span className="font-spaceGrotesk">type <span style={{ color: "#4A90E2" }}>help</span> to get started</span>
+          <span>zsh</span>
+        </div>
+
+        <style>{`
+          .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+          .no-scrollbar::-webkit-scrollbar { display: none; }
+        `}</style>
+      </div>
+
+      {/* scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="w-6 h-10 rounded-full border-2 flex justify-center" style={{ borderColor: "#4A90E2" }}>
+          <span className="w-1 h-3 rounded-full mt-2 animate-bounce" style={{ backgroundColor: "#4A90E2" }} />
+        </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default LandingPage;
